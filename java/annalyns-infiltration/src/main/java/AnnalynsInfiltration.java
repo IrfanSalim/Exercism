@@ -5,6 +5,7 @@ class AnnalynsInfiltration {
 
     public static boolean canSpy(boolean knightIsAwake, boolean archerIsAwake, boolean prisonerIsAwake) {
       if (knightIsAwake || archerIsAwake) return true;
+      else if (!knightIsAwake && !archerIsAwake && prisonerIsAwake) return true;
       else return false;
     }
 
@@ -14,7 +15,7 @@ class AnnalynsInfiltration {
     }
 
     public static boolean canFreePrisoner(boolean knightIsAwake, boolean archerIsAwake, boolean prisonerIsAwake, boolean petDogIsPresent) {
-      if (!archerIsAwake && prisonerIsAwake && petDogIsPresent) return true;
+      if (!archerIsAwake &&  petDogIsPresent) return true;
       else if (!archerIsAwake && !knightIsAwake && prisonerIsAwake && !petDogIsPresent) return true;
       else return false;
     }
