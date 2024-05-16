@@ -1,5 +1,9 @@
 class SqueakyClean {
     static String clean(String identifier) {
-        throw new UnsupportedOperationException("Please implement the (static) SqueakyClean.clean() method");
+      String clean = identifier.replaceAll("[^a-zA-Z0-9]", "_");
+      if (clean.length() == 0) {
+        return "a";
+      }
+      return clean;
     }
 }
