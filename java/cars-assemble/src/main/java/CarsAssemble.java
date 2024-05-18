@@ -2,11 +2,11 @@ public class CarsAssemble {
 
     public double productionRatePerHour(int speed) {
       int success = successRate(speed);
-      return success / 100 * speed * 221;
+      return (double) success / 100 * speed * 221.0;
     }
 
     public int workingItemsPerMinute(int speed) {
-        throw new UnsupportedOperationException("Please implement the CarsAssemble.workingItemsPerMinute() method");
+      return (int) productionRatePerHour(speed) / 60;
     }
 
     private int successRate(int speed) {
