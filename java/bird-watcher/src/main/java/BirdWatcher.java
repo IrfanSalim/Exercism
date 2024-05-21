@@ -11,7 +11,7 @@ class BirdWatcher {
     }
 
     public int getToday() {
-      return this.birdsPerDay[this.birdsPerDay.length - 1];
+      return birdsPerDay.length == 0 ? 0 : birdsPerDay[birdsPerDay.length -1];
     }
 
     public void incrementTodaysCount() {
@@ -46,3 +46,18 @@ class BirdWatcher {
       return count;
     }
 }
+
+
+/*
+
+    public boolean hasDayWithoutBirds() {
+        return Arrays.stream(birdsPerDay).filter(a -> a == 0).findAny().isPresent();
+    }
+    public int getCountForFirstDays(int numberOfDays) {
+       return Arrays.stream(birdsPerDay).limit(numberOfDays).sum();
+    }
+    public int getBusyDays() {
+        return (int) Arrays.stream(birdsPerDay).filter(a -> a >= 5).count();
+    }
+
+*/
