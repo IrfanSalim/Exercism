@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LeapTest" tests="9" skipped="8" failures="0" errors="0" timestamp="2024-05-23T13:11:50" hostname="c889f3aa022f" time="0.029">
+  <properties/>
+  <testcase name="testYearDivBy100NotDivBy3IsNotLeapYear()" classname="LeapTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testYearDivBy2NotDivBy4InCommonYear()" classname="LeapTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testYearDivBy400InLeapYear()" classname="LeapTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testYearNotDivBy4InCommonYear()" classname="LeapTest" time="0.024"/>
+  <testcase name="testYearDivBy4NotDivBy100InLeapYear()" classname="LeapTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testYearDivBy400NotDivBy125IsLeapYear()" classname="LeapTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testYearDivBy100NotDivBy400InCommonYear()" classname="LeapTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testYearDivBy200NotDivBy400InCommonYear()" classname="LeapTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="testYearDivBy4And5InLeapYear()" classname="LeapTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
