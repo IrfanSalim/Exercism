@@ -13,3 +13,14 @@ class ArmstrongNumbers {
     }
 
 }
+
+class ArmstrongNumbers {
+
+	boolean isArmstrongNumber(int numberToCheck) {
+		String digits = String.valueOf(numberToCheck);
+		return numberToCheck == digits.chars().parallel()
+			.map(d -> (int) Math.pow(Character.getNumericValue(d), digits.length()))
+			.sum();
+	}
+
+}
