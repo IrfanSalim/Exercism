@@ -1,43 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DartsTest" tests="13" skipped="12" failures="0" errors="0" timestamp="2024-05-27T18:20:35" hostname="c889f3aa022f" time="0.033">
+<testsuite name="DartsTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2024-05-27T18:23:09" hostname="c889f3aa022f" time="0.034">
   <properties/>
-  <testcase name="exactlyOnCentre()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="onTheInnerCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="justWithinTheInnerCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="justWithinTheMiddleCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="asymmetricPositionBetweenTheInnerAndMiddleCircles()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="nearTheCentre()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="missedTarget()" classname="DartsTest" time="0.026"/>
-  <testcase name="justOutsideTheOuterCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="justOutsideTheMiddleCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="onTheMiddleCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="onTheOuterCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="justWithinTheOuterCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <testcase name="justOutsideTheInnerCircle()" classname="DartsTest" time="0.0">
-    <skipped/>
-  </testcase>
+  <testcase name="exactlyOnCentre()" classname="DartsTest" time="0.025"/>
+  <testcase name="onTheInnerCircle()" classname="DartsTest" time="0.0"/>
+  <testcase name="justWithinTheInnerCircle()" classname="DartsTest" time="0.0"/>
+  <testcase name="justWithinTheMiddleCircle()" classname="DartsTest" time="0.0"/>
+  <testcase name="asymmetricPositionBetweenTheInnerAndMiddleCircles()" classname="DartsTest" time="0.001"/>
+  <testcase name="nearTheCentre()" classname="DartsTest" time="0.0"/>
+  <testcase name="missedTarget()" classname="DartsTest" time="0.0"/>
+  <testcase name="justOutsideTheOuterCircle()" classname="DartsTest" time="0.001"/>
+  <testcase name="justOutsideTheMiddleCircle()" classname="DartsTest" time="0.0"/>
+  <testcase name="onTheMiddleCircle()" classname="DartsTest" time="0.0"/>
+  <testcase name="onTheOuterCircle()" classname="DartsTest" time="0.0"/>
+  <testcase name="justWithinTheOuterCircle()" classname="DartsTest" time="0.0"/>
+  <testcase name="justOutsideTheInnerCircle()" classname="DartsTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
