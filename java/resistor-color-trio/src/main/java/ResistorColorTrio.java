@@ -63,3 +63,31 @@ class ResistorColorTrio {
         return prefix.toString();
     }
 }
+
+
+import java.util.List;
+class ResistorColorTrio {
+    private final static List<String> COLORS = List.of("black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white");
+    private final static int GIGA = 1_000_000_000;
+    private final static int MEGA = 1_000_000;
+    private final static int KILO = 1_000;
+    String label(String[] colors) {
+        long mainValue = COLORS.indexOf(colors[0]) * 10 + COLORS.indexOf(colors[1]);
+        mainValue *= Math.pow(10, COLORS.indexOf(colors[2]));
+        String suffix = "ohms";
+        if (mainValue / 1_000_000_000 > 0) {
+            suffix = "gigaohms";
+            mainValue /= GIGA;
+        } else if (mainValue / MEGA > 0) {
+            suffix = "megaohms";
+            mainValue /= MEGA;
+        } else if (mainValue / KILO > 0) {
+            suffix = "kiloohms";
+            mainValue /= KILO;
+        }
+        return String.format("%s %s", mainValue, suffix);
+    }
+}
+
+
+
