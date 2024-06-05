@@ -1,11 +1,16 @@
 class Acronym {
+    String acr = "";
 
     Acronym(String phrase) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      phrase = phrase.trim();
+      String[] words = phrase.replaceAll("[^a-zA-Z0-9\s-]", "").split("[\\s-]+");
+      for (String word : words) {
+        this.acr += word.substring(0, 1).toUpperCase();
+      }
     }
 
     String get() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      return this.acr;
     }
 
 }
