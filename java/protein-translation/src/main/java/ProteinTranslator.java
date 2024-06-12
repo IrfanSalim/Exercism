@@ -25,8 +25,11 @@ class ProteinTranslator {
       List<String> protein = new ArrayList<>();
 
       for (int i = 0; i < rnaSequence.length(); i += 3) {
+        if (i + 3 > rnaSequence.length()) throw new IllegalArgumentException("Invalid codon");
         String codon = rnaSequence.substring(i, i + 3);
-        if (codons.get(codon) == "STOP") {
+        if (codons.containsKey(codon) == false) {
+          throw new IllegalArgumentException("Invalid codon");
+        } else if (codons.get(codon) == "STOP") {
           return protein;
         } else {
           protein.add(codons.get(codon));
