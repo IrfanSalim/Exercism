@@ -1,8 +1,38 @@
-import java.util.List;
+import java.util.*;
 
 class ProteinTranslator {
 
     List<String> translate(String rnaSequence) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      HashMap<String, String> codons = new HashMap<>();
+      codons.put("AUG", "Methionine");
+      codons.put("UUU", "Phenylalanine");
+      codons.put("UUC", "Phenylalanine");
+      codons.put("UUA", "Leucine");
+      codons.put("UUG", "Leucine");
+      codons.put("UCU", "Serine");
+      codons.put("UCC", "Serine");
+      codons.put("UCA", "Serine");
+      codons.put("UCG", "Serine");
+      codons.put("UAU", "Tyrosine");
+      codons.put("UAC", "Tyrosine");
+      codons.put("UGU", "Cysteine");
+      codons.put("UGC", "Cysteine");
+      codons.put("UGG", "Tryptophan");
+      codons.put("UAA", "STOP");
+      codons.put("UAG", "STOP");
+      codons.put("UGA", "STOP");
+
+      List<String> protein = new ArrayList<>();
+
+      for (int i = 0; i < rnaSequence.length(); i += 3) {
+        String codon = rnaSequence.substring(i, i + 3);
+        if (codons.get(codon) == "STOP") {
+          return protein;
+        } else {
+          protein.add(codons.get(codon));
+        }
+      }
+
+      return protein;
     }
 }
