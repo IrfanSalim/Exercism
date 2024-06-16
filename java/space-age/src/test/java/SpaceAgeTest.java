@@ -15,7 +15,6 @@ public class SpaceAgeTest {
         assertThat(age.onEarth()).isEqualTo(31.69, offset(MAXIMUM_DELTA));
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void ageOnMercury() {
         SpaceAge age = new SpaceAge(2134835688);
@@ -23,7 +22,6 @@ public class SpaceAgeTest {
         assertThat(age.onMercury()).isEqualTo(280.88, offset(MAXIMUM_DELTA));
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void ageOnVenus() {
         SpaceAge age = new SpaceAge(189839836);
@@ -31,7 +29,6 @@ public class SpaceAgeTest {
         assertThat(age.onVenus()).isEqualTo(9.78, offset(MAXIMUM_DELTA));
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void ageOnMars() {
         SpaceAge age = new SpaceAge(2129871239L);
@@ -39,7 +36,6 @@ public class SpaceAgeTest {
         assertThat(age.onMars()).isEqualTo(35.88, offset(MAXIMUM_DELTA));
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void ageOnJupiter() {
         SpaceAge age = new SpaceAge(901876382);
@@ -47,7 +43,6 @@ public class SpaceAgeTest {
         assertThat(age.onJupiter()).isEqualTo(2.41, offset(MAXIMUM_DELTA));
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void ageOnSaturn() {
         SpaceAge age = new SpaceAge(2000000000L);
@@ -55,7 +50,6 @@ public class SpaceAgeTest {
         assertThat(age.onSaturn()).isEqualTo(2.15, offset(MAXIMUM_DELTA));
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void ageOnUranus() {
         SpaceAge age = new SpaceAge(1210123456L);
@@ -63,7 +57,6 @@ public class SpaceAgeTest {
         assertThat(age.onUranus()).isEqualTo(0.46, offset(MAXIMUM_DELTA));
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void ageOnNeptune() {
         SpaceAge age = new SpaceAge(1821023456L);
