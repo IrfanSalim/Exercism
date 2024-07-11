@@ -1,17 +1,33 @@
 class IsbnVerifier {
 
     boolean isValid(String stringToVerify) {
-      int sum = 0;
-      int multiplier = 10;
-      for (int i = 0; i < stringToVerify.length(); i++) {
-        if (Character.isDigit(stringToVerify.charAt(i))) {
-          sum += (Integer.parseInt(String.valueOf(stringToVerify.charAt(i))) * multiplier);
-        } else if (stringToVerify.charAt(i) == 'X') {
-          sum += 10 * multiplier;
+        // Remove hyphens
+        String stringToVerifyWithoutHyphens = stringToVerify.replaceAll("-", "");
+        
+        // ISBN must be 10 characters long
+        if (stringToVerifyWithoutHyphens.length() != 10) {
+            return false;
         }
-        multiplier--;
+        
+        int sum = 0;
+        int multiplier = 10;
+        
+        // Validate each character
+        for (int i = 0; i < stringToVerifyWithoutHyphens.length(); i++) {
+            char c = stringToVerifyWithoutHyphens.charAt(i);
+            
+            if (Character.isDigit(c)) {
+                sum += (c - '0') * multiplier;
+            } else if (c == 'X' && i == 9) { // 'X' is allowed only in the last position
+                sum += 10 * multiplier;
+            } else {
+                return false; // Invalid character
+            }
+            multiplier--;
+        }
+        
+        // Check if the sum is divisible by 11
+        return sum % 11 == 0;
     }
-    
-    return sum % 11 == 0;
-  }
 }
+
