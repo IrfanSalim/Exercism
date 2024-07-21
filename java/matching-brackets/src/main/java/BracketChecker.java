@@ -35,3 +35,44 @@ class BracketChecker {
     }
 
 }
+
+
+import com.google.common.collect.ImmutableMap;
+import com.google.common.primitives.Chars;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+final class BracketChecker {
+    private static Map brackets = ImmutableMap.of('[',']','{','}','(',')');
+    private String string;
+
+    public BracketChecker(String input) {
+        string = input;
+    }
+
+    public boolean areBracketsMatchedAndNestedCorrectly() {
+        //stack of opened brackets
+        List stack = new LinkedList<Character>();
+        return (Chars.asList(string.toCharArray())
+                .stream()
+                .mapToInt(x -> {
+                    //if closing bracket
+                    if (brackets.containsValue(x)) {
+                        //no opened - mistake!
+                        if (stack.size() == 0) return 1;
+                        //wrong last opened - mistake
+                        if (stack.remove(stack.size()-1) != x) return 1;
+                    }
+                    //opening bracket
+                    if (brackets.containsKey(x)) {
+                        stack.add(brackets.get(x));
+                    }
+                    return 0; //all is ok
+                })
+                .sum() == 0 // no mistakes
+        ) & (stack.isEmpty()    // and all brackets are closed
+        );
+    }
+}
