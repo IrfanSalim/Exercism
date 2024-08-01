@@ -81,3 +81,22 @@ class Bob {
         return answers[questioning + shouting];
     }
 }
+
+
+public class Bob {
+
+    public String hey(String sentence) {
+
+        sentence = sentence.trim();
+
+        boolean inquiry = sentence.endsWith("?"),
+                yelling = sentence.matches("(?!^[0-9\\W]+$)^[^a-z]+$");
+
+        return yelling && inquiry  ? "Calm down, I know what I'm doing!" :
+               yelling ? "Whoa, chill out!" :
+               inquiry ? "Sure." :
+               sentence.isEmpty() ? "Fine. Be that way!" : "Whatever.";
+
+    }
+
+}
