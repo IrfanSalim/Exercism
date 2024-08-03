@@ -12,7 +12,6 @@ public class SquareRootTest {
                 .isEqualTo(1);
     }
 
-    @Disabled("Remove to run test")
     @Test
     @DisplayName("Square root of 4")
     public void squareRootOf4() {
@@ -20,7 +19,6 @@ public class SquareRootTest {
                 .isEqualTo(2);
     }
 
-    @Disabled("Remove to run test")
     @Test
     @DisplayName("Square root of 25")
     public void squareRootOf25() {
@@ -28,7 +26,6 @@ public class SquareRootTest {
                 .isEqualTo(5);
     }
 
-    @Disabled("Remove to run test")
     @Test
     @DisplayName("Square root of 81")
     public void squareRootOf81() {
@@ -36,7 +33,6 @@ public class SquareRootTest {
                 .isEqualTo(9);
     }
 
-    @Disabled("Remove to run test")
     @Test
     @DisplayName("Square root of 196")
     public void squareRootOf196() {
@@ -44,7 +40,6 @@ public class SquareRootTest {
                 .isEqualTo(14);
     }
 
-    @Disabled("Remove to run test")
     @Test
     @DisplayName("Square root of 65025")
     public void squareRootOf65025() {
