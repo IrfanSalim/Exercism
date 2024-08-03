@@ -1,5 +1,9 @@
 public class SquareRoot {
     public int squareRoot(int radicand) {
-        throw new UnsupportedOperationException("Please implement the SquareRoot.squareRoot method.");
+      int i = 1;
+      while (i * i <= radicand) {
+        i++;
+      }
+      return i - 1;
     }
 }
