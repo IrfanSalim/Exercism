@@ -18,7 +18,6 @@ public class SpiralMatrixBuilderTest {
         assertThat(spiralMatrixBuilder.buildMatrixOfSize(0)).isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testTrivialSpiral() {
         int[][] expected = {
@@ -28,7 +27,6 @@ public class SpiralMatrixBuilderTest {
         assertThat(spiralMatrixBuilder.buildMatrixOfSize(1)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testSpiralOfSize2() {
         int[][] expected = {
@@ -39,7 +37,6 @@ public class SpiralMatrixBuilderTest {
         assertThat(spiralMatrixBuilder.buildMatrixOfSize(2)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testSpiralOfSize3() {
         int[][] expected = {
@@ -51,7 +48,6 @@ public class SpiralMatrixBuilderTest {
         assertThat(spiralMatrixBuilder.buildMatrixOfSize(3)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testSpiralOfSize4() {
         int[][] expected = {
@@ -64,7 +60,6 @@ public class SpiralMatrixBuilderTest {
         assertThat(spiralMatrixBuilder.buildMatrixOfSize(4)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testSpiralOfSize5() {
         int[][] expected = {
