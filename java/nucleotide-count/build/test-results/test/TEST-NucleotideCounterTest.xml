@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="NucleotideCounterTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-08-07T09:19:35" hostname="c889f3aa022f" time="0.037">
+  <properties/>
+  <testcase name="testDnaStringHasOneNucleotide()" classname="NucleotideCounterTest" time="0.03"/>
+  <testcase name="testDnaStringHasMultipleNucleotide()" classname="NucleotideCounterTest" time="0.001"/>
+  <testcase name="testEmptyDnaStringHasNoNucleotides()" classname="NucleotideCounterTest" time="0.0"/>
+  <testcase name="testDnaStringHasInvalidNucleotides()" classname="NucleotideCounterTest" time="0.002"/>
+  <testcase name="testRepetitiveSequenceWithOnlyGuanine()" classname="NucleotideCounterTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
