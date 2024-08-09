@@ -25,3 +25,51 @@ public class House {
 		return verses(1, 12);
 	}
 }
+
+import java.util.stream.IntStream;
+import java.util.stream.Collectors;
+
+class House {
+  private static final String[] NOUNS = {
+    "house that Jack built.",
+    "malt",
+    "rat",
+    "cat",
+    "dog",
+    "cow with the crumpled horn",
+    "maiden all forlorn",
+    "man all tattered and torn",
+    "priest all shaven and shorn",
+    "rooster that crowed in the morn",
+    "farmer sowing his corn",
+    "horse and the hound and the horn"
+  };
+  private static final String[] VERBS = {
+    "lay in",
+    "ate",
+    "killed",
+    "worried",
+    "tossed",
+    "milked",
+    "kissed",
+    "married",
+    "woke",
+    "kept",
+    "belonged to"
+  };
+
+  String verse(int n) {
+    StringBuilder verse = new StringBuilder(String.format("This is the %s", NOUNS[--n]));
+    while (n > 0) verse.append(String.format(" that %s the %s", VERBS[--n], NOUNS[n]));
+    return verse.toString();
+  }
+
+  String verses(int start, int end) {
+    return IntStream.rangeClosed(start, end).mapToObj(i -> verse(i))
+      .collect(Collectors.joining("\n"));
+  }
+
+  String sing() {
+    return verses(1, 12);
+  }
+}
