@@ -29,6 +29,6 @@ public class LanguageList {
     }
 
     public boolean isExciting() {
-
+      return languages.contains("Kotlin") || languages.contains("Java");
     }
 }
