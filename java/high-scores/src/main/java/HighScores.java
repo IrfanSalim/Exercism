@@ -1,25 +1,28 @@
 import java.util.List;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 class HighScores {
-
+    List<Integer> highScores;
+    
     public HighScores(List<Integer> highScores) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      this.highScores = highScores;
     }
 
     List<Integer> scores() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      return this.highScores;
     }
 
     Integer latest() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      return highScores.get(highScores.size() - 1);
     }
 
     Integer personalBest() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      return highScores.stream().max(Integer::compare).get();
     }
 
     List<Integer> personalTopThree() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+      return highScores.stream().sorted(Comparator.reverseOrder()).limit(3).collect(Collectors.toList());
     }
 
 }
