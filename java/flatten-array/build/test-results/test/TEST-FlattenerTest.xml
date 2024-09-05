@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FlattenerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2024-09-05T14:47:17" hostname="c889f3aa022f" time="0.04">
+  <properties/>
+  <testcase name="testSixLevelsOfNestingWithNulls()" classname="FlattenerTest" time="0.031"/>
+  <testcase name="testNestedList()" classname="FlattenerTest" time="0.001"/>
+  <testcase name="testASingleLevelOfNestingWithNoNulls()" classname="FlattenerTest" time="0.001"/>
+  <testcase name="testFlatListIsPreserved()" classname="FlattenerTest" time="0.001"/>
+  <testcase name="testEmpty()" classname="FlattenerTest" time="0.001"/>
+  <testcase name="testFiveLevelsOfNestingWithNoNulls()" classname="FlattenerTest" time="0.001"/>
+  <testcase name="testConsecutiveNullValuesInMiddleOfListAreOmitted()" classname="FlattenerTest" time="0.0"/>
+  <testcase name="testNestedListsFullOfNullsOnly()" classname="FlattenerTest" time="0.0"/>
+  <testcase name="testNullValuesAreOmitted()" classname="FlattenerTest" time="0.001"/>
+  <testcase name="testConsecutiveNullValuesAtFrontOfListAreOmitted()" classname="FlattenerTest" time="0.0"/>
+  <testcase name="testSixLevelsOfNestingWithNoNulls()" classname="FlattenerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
