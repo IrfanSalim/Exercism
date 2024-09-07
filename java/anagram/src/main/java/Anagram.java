@@ -35,3 +35,36 @@ public class Anagram{
     }
 
 }
+
+
+import java.util.Arrays;
+import java.util.List;
+
+class Anagram {
+
+    private final String input;
+    private final List<String> characterList;
+
+    Anagram(final String input) {
+        var upperCaseInput = prepareWord(input);
+        this.input = upperCaseInput;
+        this.characterList = getSortedCharacters(upperCaseInput);
+    }
+
+    private String prepareWord(String word) {
+        return word.toUpperCase();
+    }
+
+    private List<String> getSortedCharacters(String input) {
+        return Arrays.stream(input.split("")).sorted().toList();
+    }
+
+    List<String> match(final List<String> candidates) {
+        return candidates.stream()
+                .filter(candidate -> {
+                    var upperCaseCandidate = prepareWord(candidate);
+                    return !input.equals(upperCaseCandidate) && characterList.equals(getSortedCharacters(upperCaseCandidate));
+                })
+                .toList();
+    }
+}
