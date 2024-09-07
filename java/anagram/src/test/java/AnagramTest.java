@@ -18,7 +18,6 @@ public class AnagramTest {
                 .isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDetectsTwoAnagrams() {
         Anagram detector = new Anagram("solemn");
@@ -27,7 +26,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("lemons", "melons");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testEliminateAnagramSubsets() {
         Anagram detector = new Anagram("good");
@@ -35,7 +33,6 @@ public class AnagramTest {
         assertThat(detector.match(Arrays.asList("dog", "goody"))).isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDetectLongerAnagram() {
         Anagram detector = new Anagram("listen");
@@ -46,7 +43,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("inlets");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDetectMultipleAnagramsForLongerWord() {
         Anagram detector = new Anagram("allergy");
@@ -62,7 +58,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("gallery", "regally", "largely");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDetectsMultipleAnagramsWithDifferentCase() {
         Anagram detector = new Anagram("nose");
@@ -71,7 +66,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("Eons", "ONES");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testEliminateAnagramsWithSameChecksum() {
         Anagram detector = new Anagram("mass");
@@ -80,7 +74,6 @@ public class AnagramTest {
                 .isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCaseInsensitiveWhenBothAnagramAndSubjectStartWithUpperCaseLetter() {
         Anagram detector = new Anagram("Orchestra");
@@ -91,7 +84,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("Carthorse");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCaseInsensitiveWhenSubjectStartsWithUpperCaseLetter() {
         Anagram detector = new Anagram("Orchestra");
@@ -102,7 +94,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("carthorse");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCaseInsensitiveWhenAnagramStartsWithUpperCaseLetter() {
         Anagram detector = new Anagram("orchestra");
@@ -113,7 +104,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("Carthorse");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testIdenticalWordRepeatedIsNotAnagram() {
         Anagram detector = new Anagram("go");
@@ -122,7 +112,6 @@ public class AnagramTest {
                 .isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testAnagramMustUseAllLettersExactlyOnce() {
         Anagram detector = new Anagram("tapper");
@@ -131,7 +120,6 @@ public class AnagramTest {
                 .isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testWordsAreNotAnagramsOfThemselvesCaseInsensitive() {
         Anagram detector = new Anagram("BANANA");
@@ -140,7 +128,6 @@ public class AnagramTest {
                 .isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testWordsAreNotAnagramsOfThemselvesEvenIfLetterCaseIsPartiallyDifferent() {
         Anagram detector = new Anagram("BANANA");
@@ -149,7 +136,6 @@ public class AnagramTest {
                 .isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testWordsAreNotAnagramsOfThemselvesEvenIfLetterCaseIsCompletelyDifferent() {
         Anagram detector = new Anagram("BANANA");
@@ -158,7 +144,6 @@ public class AnagramTest {
                 .isEmpty();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testWordsOtherThanThemselvesCanBeAnagrams() {
         Anagram detector = new Anagram("LISTEN");
@@ -167,7 +152,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("Silent");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testHandlesCaseOfGreekLetters() {
         Anagram detector = new Anagram("ΑΒΓ");
@@ -176,7 +160,6 @@ public class AnagramTest {
                 .containsExactlyInAnyOrder("ΒΓΑ", "γβα");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testDifferentCharactersWithSameBytes() {
         Anagram detector = new Anagram("a⬂");
