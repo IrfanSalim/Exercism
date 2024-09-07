@@ -1,39 +1,37 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
-class Anagram {
-    String anagram;
-    int[] charCount = new int[26];
-    public Anagram(String word) {
-      this.anagram = word;
-      word = word.toLowerCase();
-      for (int i = 0; i < word.length(); i++) {
-        charCount[word.charAt(i) - 'a']++;
-      }
+public class Anagram{
+
+    private final String word;
+
+    public Anagram(String input){
+        this.word = input;
     }
 
-    public List<String> match(List<String> candidates) {
-      List<String> result = new ArrayList<>();
-      for (String candidate : candidates) {
-        candidate = candidate.toLowerCase();
-        if (anagram.length() == candidate.length()) {
-          int[] candidateCharCount = new int[26];
-          for (int i = 0; i < candidate.length(); i++) {
-            candidateCharCount[candidate.charAt(i) - 'a']++;
-          }
-          boolean match = true;
-          for (int i = 0; i < 26; i++) {
-            if (charCount[i] != candidateCharCount[i]) {
-              match = false;
-              break;
+    public List<String> match(List<String> possibleAnagramList){
+        List<String> anagramList = new ArrayList<>();
+            for(String possibleAnagram : possibleAnagramList){
+                if(possibleAnagram.length() == word.length() && !possibleAnagram.equalsIgnoreCase(word)){
+                    if(isAnagram(possibleAnagram, word))
+                    anagramList.add(possibleAnagram);
+                }else if(possibleAnagram.length() != word.length() || possibleAnagram.equalsIgnoreCase(word)){
+
+                }else{
+                    anagramList = Collections.emptyList();
+                }
+
             }
-          }
-          if (match) {
-            result.add(candidate);
-          }
-        }
-      }
-      return result;
+
+        return anagramList;
+    }
+
+    private boolean isAnagram(String string1, String string2){
+        char[] anagram1 = string1.toLowerCase().toCharArray();
+        char[] anagram2 = string2.toLowerCase().toCharArray();
+        Arrays.sort(anagram1);
+        Arrays.sort(anagram2);
+
+        return Arrays.equals(anagram1, anagram2);
     }
 
 }
