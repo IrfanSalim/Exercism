@@ -61,3 +61,40 @@ class Matrix {
         return new HashSet<>(saddlePoints);
     }
 }
+
+import java.util.*;
+import java.util.stream.IntStream;
+
+class Matrix {
+    List<List<Integer>> values;
+    Integer rows;
+    Integer cols;
+
+    Matrix(List<List<Integer>> values) {
+        this.values = values;
+        rows = values.size();
+        cols = rows > 0 ? values.get(0).size() : 0;
+    }
+
+    List<Integer> getCol(Integer c) {
+        return values.stream().map(r -> r.get(c)).toList();
+    }
+
+    Set<MatrixCoordinate> getSaddlePoints() {
+        var rowMax = IntStream.range(0, rows)
+            .map(r -> Collections.max(values.get(r)))
+            .toArray();
+        var colMin = IntStream.range(0, cols)
+            .map(c -> Collections.min(getCol(c)))
+            .toArray();
+
+        Set<MatrixCoordinate> result = new HashSet<MatrixCoordinate>();
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (rowMax[r] == colMin[c])
+                    result.add(new MatrixCoordinate(r+1, c+1));
+            }
+        }
+        return result;
+    }
+}
