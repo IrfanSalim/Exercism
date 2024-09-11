@@ -1,13 +1,30 @@
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 class Matrix {
 
-    Matrix(List<List<Integer>> values) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    final Set<MatrixCoordinate> saddlePoints = new HashSet<>();
+
+    Matrix(List<List<Integer>> intLists) {
+        for (int i = 0; i < intLists.size(); i++) {
+            var row = intLists.get(i);
+            List<Integer> maxIndexes = new ArrayList<>();
+            var rowMax = Collections.max(row);
+
+            for (int rowIndex = 0; rowIndex < row.size(); rowIndex++) {
+                var rowValue = row.get(rowIndex);
+                if (rowValue.equals(rowMax)) maxIndexes.add(rowIndex);
+            }
+
+            for (var rowIndex : maxIndexes) {
+                List<Integer> column = new ArrayList<>();
+                for (var rowX : intLists) column.add(rowX.get(rowIndex));
+                Integer colMin = Collections.min(column);
+                if (row.get(rowIndex).equals(colMin)) saddlePoints.add(new MatrixCoordinate(i + 1, rowIndex + 1));
+            }
+        }
     }
 
     Set<MatrixCoordinate> getSaddlePoints() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return saddlePoints;
     }
 }
