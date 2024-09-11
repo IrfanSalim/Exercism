@@ -28,3 +28,36 @@ class Matrix {
         return saddlePoints;
     }
 }
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+class Matrix {
+
+    private final Set<MatrixCoordinate> saddlePoints = new HashSet<>();
+
+    Matrix(List<List<Integer>> matrix) {
+        for (int row = 0; row < matrix.size(); row++) {
+            for (int col = 0; col < matrix.get(row).size(); col++) {
+
+                var point = matrix.get(row).get(col);
+                if (maxInRow(matrix.get(row)) == point && minInCol(matrix, col) == point)
+                    saddlePoints.add(new MatrixCoordinate(row + 1, col + 1));
+            }
+        }
+    }
+
+    private int maxInRow(List<Integer> row) {
+        return Collections.max(row);
+    }
+
+    private int minInCol(List<List<Integer>> matrix, int column) {
+        return matrix.stream().map(r -> r.get(column)).min(Integer::compareTo).orElseThrow();
+    }
+
+    Set<MatrixCoordinate> getSaddlePoints() {
+        return new HashSet<>(saddlePoints);
+    }
+}
