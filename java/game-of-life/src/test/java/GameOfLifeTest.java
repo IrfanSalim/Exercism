@@ -12,7 +12,7 @@ public class GameOfLifeTest {
         assertThat(new GameOfLife().tick(matrix)).isEmpty();
     }
 
-    @Disabled("Remove to run test")
+
     @Test
     @DisplayName("Live cells with zero live neighbors die")
     public void testLiveCellsWithZeroLiveNeighborsDie() {
@@ -31,7 +31,7 @@ public class GameOfLifeTest {
         assertThat(new GameOfLife().tick(matrix)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
+
     @Test
     @DisplayName("Live cells with only one live neighbor die")
     public void testLiveCellsWithOnlyOneLiveNeighborsDie() {
@@ -49,7 +49,7 @@ public class GameOfLifeTest {
         assertThat(new GameOfLife().tick(matrix)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
+
     @Test
     @DisplayName("Live cells with two live neighbors stay alive")
     public void testLiveCellsWithTwoLiveNeighborsStayAlive() {
@@ -68,7 +68,7 @@ public class GameOfLifeTest {
         assertThat(new GameOfLife().tick(matrix)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
+
     @Test
     @DisplayName("Live cells with three live neighbors stay alive")
     public void testLiveCellsWithThreeLiveNeighborsStayAlive() {
@@ -88,7 +88,7 @@ public class GameOfLifeTest {
         assertThat(new GameOfLife().tick(matrix)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
+
     @Test
     @DisplayName("Dead cells with three live neighbors become alive")
     public void testDeadCellsWithThreeLiveNeighborsBecomeAlive() {
@@ -107,7 +107,7 @@ public class GameOfLifeTest {
         assertThat(new GameOfLife().tick(matrix)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
+
     @Test
     @DisplayName("Live cells with four or more neighbors die")
     public void testLiveCellsWithFourOrMoreNeighborsDie() {
@@ -126,7 +126,7 @@ public class GameOfLifeTest {
         assertThat(new GameOfLife().tick(matrix)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
+
     @Test
     @DisplayName("Bigger Matrix")
     public void testBiggerMatrix () {
