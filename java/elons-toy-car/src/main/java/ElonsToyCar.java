@@ -1,11 +1,6 @@
 public class ElonsToyCar {
-    int battery;
-    int distance;
-
-    public ElonsToyCar() {
-        this.battery = 100;
-        this.distance = 0;
-    }
+    private int battery = 100;
+    private int distance;
 
     public static ElonsToyCar buy() {
         return new ElonsToyCar();
