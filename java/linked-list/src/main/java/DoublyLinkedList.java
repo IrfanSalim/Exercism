@@ -3,8 +3,9 @@ class DoublyLinkedList<T> {
     private Element<T> tail;
 
     public DoublyLinkedList() {
-        this.head = new Element<>(null, null, tail);
-        this.tail = new Element<>(null, head, null);
+        head = new Element<>(null, null, null);
+        tail = new Element<>(null, head, null);
+        head.next = tail;
     }
 
     void push(T value) {
