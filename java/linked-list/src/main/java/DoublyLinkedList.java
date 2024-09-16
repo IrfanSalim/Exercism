@@ -21,11 +21,16 @@ class DoublyLinkedList<T> {
     }
 
     void unshift(T value) {
-        throw new UnsupportedOperationException("Please implement the DoublyLinkedList.unshift() method.");
+        Element<T> node = new Element<>(value, this.head, this.head.next);
+        this.head.next.prev = node;
+        this.head.next = node;
     }
 
     T shift() {
-        throw new UnsupportedOperationException("Please implement the DoublyLinkedList.shift() method.");
+        Element<T> node = this.head.next;
+        this.head.next = node.next;
+        this.head.next.prev = this.head;
+        return (T) node.value;
     }
 
     private static final class Element<T> {
