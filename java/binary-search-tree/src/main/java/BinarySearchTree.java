@@ -6,8 +6,16 @@ class BinarySearchTree<T extends Comparable<T>> {
         if (root == null) {
             root = new Node<>(value);
         } else {
-            
+            root = put(root, value);
         }
+    }
+
+    private Node<T> put(Node<T> pos, T value) {
+        if (pos == null) return new Node<>(value);
+        int cmp = value.compareTo((T) pos.getData());
+        if (cmp > 0) pos.right = put(pos.right, value);
+        else if (cmp <= 0) pos.left = put(pos.left, value);
+        return pos;
     }
 
     List<T> getAsSortedList() {
@@ -19,28 +27,28 @@ class BinarySearchTree<T extends Comparable<T>> {
     }
 
     Node<T> getRoot() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return root;
     }
 
     static class Node<T> {
         T data;
-        Node<T> left;
-        Node<T> right;
+        Node<T> left = null;
+        Node<T> right = null;
 
         public Node(T data) {
             this.data = data;
         }
 
         Node<T> getLeft() {
-            throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+            return left;
         }
 
         Node<T> getRight() {
-            throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+            return right;
         }
 
         T getData() {
-            throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+            return data;
         }
 
     }
