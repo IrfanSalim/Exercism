@@ -1,4 +1,5 @@
-import java.util.List;
+import java.util.*;
+
 
 class BinarySearchTree<T extends Comparable<T>> {
     Node<T> root = null;
@@ -19,11 +20,30 @@ class BinarySearchTree<T extends Comparable<T>> {
     }
 
     List<T> getAsSortedList() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        List<T> result = new ArrayList<>();
+        get(root, result);
+        return result;
+    }
+
+    private void get(Node<T> node, List<T> result) {
+        if (node == null) return;
+
+        get(node.getLeft(), result);
+        result.add(node.getData());
+        get(node.getRight(), result);
     }
 
     List<T> getAsLevelOrderList() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        Queue<Node<T>> queue = new ArrayDeque<>();
+        queue.offer(root);
+        List<T> res = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            Node<T> pos = queue.poll();
+            res.add((T) pos.getData());
+            if (pos.getLeft() != null) queue.offer(pos.getLeft());
+            if (pos.getRight() != null) queue.offer(pos.getRight());
+        }
+        return res;
     }
 
     Node<T> getRoot() {
