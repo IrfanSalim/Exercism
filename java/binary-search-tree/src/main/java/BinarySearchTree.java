@@ -1,8 +1,13 @@
 import java.util.List;
 
 class BinarySearchTree<T extends Comparable<T>> {
+    Node<T> root = null;
     void insert(T value) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        if (root == null) {
+            root = new Node<>(value);
+        } else {
+            
+        }
     }
 
     List<T> getAsSortedList() {
@@ -18,6 +23,13 @@ class BinarySearchTree<T extends Comparable<T>> {
     }
 
     static class Node<T> {
+        T data;
+        Node<T> left;
+        Node<T> right;
+
+        public Node(T data) {
+            this.data = data;
+        }
 
         Node<T> getLeft() {
             throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
