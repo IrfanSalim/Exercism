@@ -1,38 +1,54 @@
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Graph {
+    private final ArrayList<Node> node;
+    private final ArrayList<Edge> edge;
+    private final Map<String, String> attribute;
+
     public Graph() {
+        this.node = new ArrayList<>();
+        this.edge = new ArrayList<>();
+        this.attribute = new HashMap<>();
     }
 
     public Graph(Map<String, String> attributes) {
+        this.node = new ArrayList<>();
+        this.edge = new ArrayList<>();
+        this.attribute = attributes;
     }
 
     public Collection<Node> getNodes() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.node;
     }
 
     public Collection<Edge> getEdges() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.edge;
     }
 
     public Graph node(String name) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.node.add(new Node(name));
+        return this;
     }
 
     public Graph node(String name, Map<String, String> attributes) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.node.add(new Node(name, attributes));
+        return this;
     }
 
     public Graph edge(String start, String end) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.edge.add(new Edge(start, end));
+        return this;
     }
 
     public Graph edge(String start, String end, Map<String, String> attributes) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.edge.add(new Edge(start, end, attributes));
+        return this;
     }
 
     public Map<String, String> getAttributes() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return this.attribute;
     }
 }
