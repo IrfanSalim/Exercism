@@ -19,7 +19,6 @@ public class GraphTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("graph with one node")
     public void testGraphWithOneNode() {
         Graph graph = new Graph().node("a");
@@ -30,7 +29,6 @@ public class GraphTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("graph with one node with keywords")
     public void testGraphWithOneNodeWithKeywords() {
         Graph graph = new Graph().node("a", Map.of("color", "green"));
@@ -42,7 +40,6 @@ public class GraphTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("graph with one edge")
     public void testGraphWithOneEdge() {
         Graph graph = new Graph().edge("a", "b");
@@ -54,7 +51,6 @@ public class GraphTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("graph with one edge with keywords")
     public void testGraphWithOneEdgeWithKeywords() {
         Graph graph = new Graph().edge("a", "b", Map.of("color", "blue"));
@@ -66,7 +62,6 @@ public class GraphTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("graph with one attribute")
     public void testGraphWithOneAttribute() {
         Graph graph = new Graph(Map.of("foo", "1"));
@@ -77,7 +72,6 @@ public class GraphTest {
     }
 
     @Test
-    @Disabled
     @DisplayName("graph with attributes")
     public void testGraphWithAttributes() {
         Graph graph = new Graph(Map.of("foo", "1", "title", "Testing Attrs", "bar", "true"))
