@@ -34,3 +34,49 @@ class PrimeFactorsCalculator {
     }
 
 }
+
+import static java.util.stream.Collectors.*;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.LongStream;
+import java.util.stream.Stream;
+
+class PrimeFactorsCalculator {
+
+	List<Long> calculatePrimeFactorsOf(final long number) {
+		return number < 2
+			? Collections.emptyList()
+			: this.concatFactor(this.smallestFactor(number), number).collect(toList());
+	}
+
+	private Stream<Long> concatFactor(final long factor, final long number) {
+		return Stream.concat(Stream.of(factor), this.calculatePrimeFactorsOf(number / factor).stream());
+	}
+
+	private Long smallestFactor(final Long number) {
+		return LongStream.range(2, number).filter(n -> number % n == 0).findFirst().orElse(number);
+
+	}
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrimeFactorsCalculator {
+    
+    public List<Long> calculatePrimeFactorsOf(long input) {
+        List<Long> list = new ArrayList<>();
+        long i = 2;
+        while (i <= input) {
+            if (input % i == 0) {
+                list.add(i);
+                input = input / i;
+            } else {
+                i++;
+            }
+        }
+        return list;
+    }
+    
+}
