@@ -1,31 +1,49 @@
 class NeedForSpeed {
-    NeedForSpeed(int speed, int batteryDrain) {
-        throw new UnsupportedOperationException("Please implement the NeedForSpeed constructor");
+    private int speed;
+    private int batteryDrain;
+    private int distance;
+    private int battery = 100; 
+    
+    NeedForSpeed(int speed, int batteryDrain) { //construtor
+        this.speed = speed;
+        this.batteryDrain = batteryDrain;
     }
 
     public boolean batteryDrained() {
-        throw new UnsupportedOperationException("Please implement the NeedForSpeed.batteryDrained() method");
+        return battery < batteryDrain;
     }
 
-    public int distanceDriven() {
-        throw new UnsupportedOperationException("Please implement the NeedForSpeed.distanceDriven() method");
+    public int distanceDriven() { //returna distancia 
+        return distance;
     }
 
     public void drive() {
-        throw new UnsupportedOperationException("Please implement the NeedForSpeed.drive() method");
+        if (!batteryDrained()) { //distancia acumula a velocidade 
+            distance += speed;
+            battery -= batteryDrain;
+        }
     }
 
     public static NeedForSpeed nitro() {
-        throw new UnsupportedOperationException("Please implement the (static) NeedForSpeed.nitro() method");
+        return new NeedForSpeed(50, 4);
     }
 }
 
 class RaceTrack {
+    private int distance;
+
     RaceTrack(int distance) {
-        throw new UnsupportedOperationException("Please implement the RaceTrack constructor");
+        this.distance = distance;
     }
 
     public boolean canFinishRace(NeedForSpeed car) {
-        throw new UnsupportedOperationException("Please implement the RaceTrack.canFinishRace() method");
+        while (!car.batteryDrained()) {
+            car.drive();
+        }
+        if (car.distanceDriven() >= distance) {
+                                                
+            return true;
+        }
+        return false;
     }
 }

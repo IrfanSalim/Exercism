@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="NeedForSpeedTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2024-09-23T14:54:04" hostname="IRFANS-LAPTOP" time="3.131">
+  <properties/>
+  <testcase name="The distanceDriven method returns 0 on a new car" classname="NeedForSpeedTest" time="1.745"/>
+  <testcase name="The batteryDrained method returns true when battery completely drained after driving" classname="NeedForSpeedTest" time="0.047"/>
+  <testcase name="The batteryDrained method returns false when nitro car never drove" classname="NeedForSpeedTest" time="0.072"/>
+  <testcase name="The batteryDrained method returns false when car never drove" classname="NeedForSpeedTest" time="0.028"/>
+  <testcase name="The canFinishRace method returns false when car just cannot finish a race" classname="NeedForSpeedTest" time="0.085"/>
+  <testcase name="The distanceDriven method returns 5 after driving once" classname="NeedForSpeedTest" time="0.03"/>
+  <testcase name="The canFinishRace method returns true when car can finish a race" classname="NeedForSpeedTest" time="0.032"/>
+  <testcase name="The distanceDriven method returns the correct distance after driving multiple times" classname="NeedForSpeedTest" time="0.026"/>
+  <testcase name="The batteryDrained method returns false when nitro battery did not completely drain after driving" classname="NeedForSpeedTest" time="0.044"/>
+  <testcase name="The canFinishRace method returns true when car can just finish a race" classname="NeedForSpeedTest" time="0.015"/>
+  <testcase name="The distanceDriven method returns the correct distance after driving a nitro car" classname="NeedForSpeedTest" time="0.067"/>
+  <testcase name="The batteryDrained method returns false when there's not enough battery" classname="NeedForSpeedTest" time="0.04"/>
+  <testcase name="The batteryDrained method returns true when nitro battery completely drained after driving" classname="NeedForSpeedTest" time="0.05"/>
+  <testcase name="The distanceDriven method returns 0 on a new nitro car" classname="NeedForSpeedTest" time="0.071"/>
+  <testcase name="The canFinishRace method returns false when car cannot finish a race" classname="NeedForSpeedTest" time="0.017"/>
+  <testcase name="The batteryDrained method returns false when car battery did not completely drain after driving" classname="NeedForSpeedTest" time="0.02"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
