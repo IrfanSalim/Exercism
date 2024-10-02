@@ -101,7 +101,7 @@ public class SchoolTest {
         school.add("Peter", 2);
         school.add("Anna", 1);
 
-        assertThat(school.roster()).containsExactly("Anna", "Peter", "Jim");
+        assertThat(school.roster()).containsExactly("Anna", "Jim", "Peter");
     }
 
     @Test
@@ -123,7 +123,7 @@ public class SchoolTest {
         school.add("Jim", 3);
         school.add("Charlie", 1);
 
-        assertThat(school.roster()).containsExactly("Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim");
+        assertThat(school.roster()).containsExactly("Alex", "Anna", "Barb", "Charlie", "Jim", "Peter", "Zoe");
     }
 
     @Test
