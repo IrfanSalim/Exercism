@@ -1,32 +1,32 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 class School {
-    private final HashMap<Integer, List<String>> stuMap = new HashMap<>();
-    private final HashSet<String> allStudents = new HashSet<>();
+    private final Map<String, Integer> roster = new TreeMap<>();
 
-    public synchronized boolean add(String student, int grade) {
-        if (allStudents.contains(student)) {
-            return false;
-        }
-        allStudents.add(student);
-        stuMap.computeIfAbsent(grade, k -> new ArrayList<>()).add(student);
-        return true;
+    public boolean add(String student, int grade) {
+        int auxLen = this.roster.size();
+
+        roster.putIfAbsent(student, grade);
+
+        return roster.size() > auxLen;
     }
 
-    public synchronized List<String> roster() {
-        List<String> sortedRoster = new ArrayList<>(allStudents);
-        Collections.sort(sortedRoster);
-        return sortedRoster;
+    public List<String> roster() {
+        return roster.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 
-    public synchronized List<String> grade(int grade) {
-        List<String> studentsInGrade = stuMap.getOrDefault(grade, new ArrayList<>());
-        Collections.sort(studentsInGrade);
-        return studentsInGrade;
+    public List<String> grade(int grade) {
+        return roster.entrySet().stream()
+                .filter(entry -> entry.getValue() == grade)
+                .map(Map.Entry::getKey)
+                .toList();
     }
 
 }
