@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ClockEqualTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2024-10-04T14:12:42" hostname="MacBookAir.lan" time="0.006">
+  <properties/>
+  <testcase name="clocksWithNegateHour()" classname="ClockEqualTest" time="0.001"/>
+  <testcase name="clocksWithHourOverflowBySeveralDays()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithNegativeMinutes()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithNegativeMinutesThatWraps()" classname="ClockEqualTest" time="0.001"/>
+  <testcase name="clocksWithNegativeHourThatWraps()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksAMinuteApartAreNotEqual()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithNegativeHoursAndMinutesThatWrap()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksAnHourApartAreNotEqual()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithFullClockAndZeroedClockAreEqual()" classname="ClockEqualTest" time="0.001"/>
+  <testcase name="clocksWithHourOverflow()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithNegativeMinutesThatWrapsMultipleTimes()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithNegativeHourThatWrapsMultipleTimes()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithMinuteOverflowBySeveralDays()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithMinuteOverflow()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithNegativeHoursAndMinutes()" classname="ClockEqualTest" time="0.0"/>
+  <testcase name="clocksWithSameTimeAreEqual()" classname="ClockEqualTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
