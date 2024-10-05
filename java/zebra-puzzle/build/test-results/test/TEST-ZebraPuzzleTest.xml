@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ZebraPuzzleTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-10-05T15:15:17" hostname="MacBookAir.lan" time="0.047">
+  <properties/>
+  <testcase name="residentWhoOwnsZebra()" classname="ZebraPuzzleTest" time="0.041"/>
+  <testcase name="residentWhoDrinksWater()" classname="ZebraPuzzleTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
