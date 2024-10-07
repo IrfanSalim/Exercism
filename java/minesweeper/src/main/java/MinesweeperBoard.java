@@ -66,3 +66,37 @@ class MinesweeperBoard {
         return result;
     }
 }
+
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+class MinesweeperBoard {
+    private final char[][] m;
+
+    MinesweeperBoard(List<String> map) {
+        m = map.stream().map(String::toCharArray).collect(Collectors.toList()).toArray(new char[map.size()][]);
+    }
+
+    public List<String> withNumbers() {
+        for (int i = 0; i < m.length; i++)
+            for (int j = 0; j < m[i].length; j++)
+                if (m[i][j] == ' ')
+                    m[i][j] = minesAround(i, j);
+        return Arrays.asList(m).parallelStream().map(String::valueOf).collect(Collectors.toList());
+    }
+
+    private char minesAround(int i, int j) {
+        char count = '0';
+        for (int x = max(i - 1, 0); x <= min(i + 1, m.length - 1); x++)
+            for (int y = max(j - 1, 0); y <= min(j + 1, m[i].length - 1); y++)
+                if (m[x][y] == '*')
+                    count++;
+        if (count == '0')
+            count = ' ';
+        return count;
+    }
+
+}
