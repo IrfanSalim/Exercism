@@ -1,2 +1,9 @@
 acp.sh
 .env
+
+# Ignore build folders
+build/
+
+# Ignore Exercism and Gradle folders
+.exercism/
+.gradle/
