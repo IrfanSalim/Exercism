@@ -1,11 +1,23 @@
 class RotationalCipher {
+    private final int shiftKey;
 
     RotationalCipher(int shiftKey) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.shiftKey = shiftKey;
     }
 
     String rotate(String data) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+        StringBuilder result = new StringBuilder();
 
+        for (char ch : data.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                int shifted = (ch - base + shiftKey) % 26 + base;
+                result.append((char) shifted);
+            } else {
+                result.append(ch);
+            }
+        }
+
+        return result.toString();
+    }
 }
