@@ -111,7 +111,6 @@ public class Ledger {
                 } else {
                     amount = curSymb + amount + decSep + parts[1];
                 }
-                
 
                 if (e.getChange() < 0 && loc.equals("en-US")) {
                     amount = "(" + amount + ")";
@@ -122,7 +121,7 @@ public class Ledger {
                 } else {
                     amount = amount + " ";
                 }
-                
+
                 s = s + "\n";
                 s = s + String.format("%s | %-25s | %13s",
                         date,
