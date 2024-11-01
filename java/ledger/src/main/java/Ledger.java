@@ -26,12 +26,14 @@ public class Ledger {
         } else {
             if (cur.equals("USD")) {
                 if (loc.equals("en-US")) {
+                    // bien
                     curSymb = "$";
                     datPat = "MM/dd/yyyy";
                     decSep = ".";
                     thSep = ",";
                     header = "Date       | Description               | Change       ";
                 } else if (loc.equals("nl-NL")) {
+                    // bien
                     curSymb = "$";
                     datPat = "dd/MM/yyyy";
                     decSep = ",";
@@ -54,9 +56,7 @@ public class Ledger {
                 }
             }
         }
-
         s = header;
-
         if (entries.length > 0) {
             List<LedgerEntry> neg = new ArrayList<>();
             List<LedgerEntry> pos = new ArrayList<>();
@@ -68,32 +68,25 @@ public class Ledger {
                     neg.add(e);
                 }
             }
-
             neg.sort((o1, o2) -> o1.getLocalDate().compareTo(o2.getLocalDate()));
             pos.sort((o1, o2) -> o1.getLocalDate().compareTo(o2.getLocalDate()));
-
             List<LedgerEntry> all = new ArrayList<>();
             all.addAll(neg);
             all.addAll(pos);
-
             for (int i = 0; i < all.size(); i++) {
                 LedgerEntry e = all.get(i);
-
                 String date = e.getLocalDate().format(DateTimeFormatter.ofPattern(datPat));
-
                 String desc = e.getDescription();
                 if (desc.length() > 25) {
                     desc = desc.substring(0, 22);
                     desc = desc + "...";
                 }
-
                 String converted = null;
                 if (e.getChange() < 0) {
                     converted = String.format("%.02f", (e.getChange() / 100) * -1);
                 } else {
                     converted = String.format("%.02f", e.getChange() / 100);
                 }
-
                 String[] parts = converted.split("\\.");
                 String amount = "";
                 int count = 1;
@@ -105,7 +98,6 @@ public class Ledger {
                     }
                     count++;
                 }
-
                 if (loc.equals("nl-NL")) {
                     amount = curSymb + " " + amount + decSep + parts[1];
                 } else {
@@ -128,9 +120,7 @@ public class Ledger {
                         desc,
                         amount);
             }
-
         }
-
         return s;
     }
 
@@ -163,5 +153,4 @@ public class Ledger {
             this.change = change;
         }
     }
-
 }
