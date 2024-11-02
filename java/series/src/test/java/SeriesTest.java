@@ -18,7 +18,6 @@ public class SeriesTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void slicesOfOneFromTwo() {
         Series series = new Series("12");
@@ -27,7 +26,6 @@ public class SeriesTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void slicesOfTwo() {
         Series series = new Series("35");
@@ -36,7 +34,6 @@ public class SeriesTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void slicesOfTwoOverlap() {
         Series series = new Series("9142");
@@ -45,7 +42,6 @@ public class SeriesTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void slicesIncludeDuplicates() {
         Series series = new Series("777777");
@@ -53,13 +49,11 @@ public class SeriesTest {
                 "777",
                 "777",
                 "777",
-                "777"
-        );
+                "777");
         List<String> actual = series.slices(3);
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void slicesOfLongSeries() {
         Series series = new Series("918493904243");
@@ -71,13 +65,11 @@ public class SeriesTest {
                 "93904",
                 "39042",
                 "90424",
-                "04243"
-        );
+                "04243");
         List<String> actual = series.slices(5);
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void sliceLengthIsToolarge() {
         Series series = new Series("12345");
@@ -87,7 +79,6 @@ public class SeriesTest {
                 .withMessage("slice length cannot be greater than series length");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void sliceLengthIsWayToolarge() {
         Series series = new Series("12345");
@@ -97,7 +88,6 @@ public class SeriesTest {
                 .withMessage("slice length cannot be greater than series length");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void sliceLengthZero() {
         Series series = new Series("12345");
@@ -107,7 +97,6 @@ public class SeriesTest {
                 .withMessage("slice length cannot be negative or zero");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void sliceLengthNegative() {
         Series series = new Series("123");
@@ -117,7 +106,6 @@ public class SeriesTest {
                 .withMessage("slice length cannot be negative or zero");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void emptySeries() {
 
