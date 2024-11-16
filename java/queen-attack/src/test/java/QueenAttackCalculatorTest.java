@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 
-
 public class QueenAttackCalculatorTest {
 
     @Test
@@ -12,7 +11,6 @@ public class QueenAttackCalculatorTest {
         new Queen(2, 2);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHavePositiveRow() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -20,7 +18,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have positive row.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHaveRowOnBoard() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -28,7 +25,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have row <= 7.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHavePositiveColumn() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -36,7 +32,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have positive column.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCreateQueenMustHaveColumnOnBoard() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -44,79 +39,62 @@ public class QueenAttackCalculatorTest {
                 .withMessage("Queen position must have column <= 7.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCannotAttack() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(2, 4), new Queen(6, 6));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(2, 4), new Queen(6, 6));
 
         assertThat(calculator.canQueensAttackOneAnother()).isFalse();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnTheSameRow() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(2, 4), new Queen(2, 6));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(2, 4), new Queen(2, 6));
 
         assertThat(calculator.canQueensAttackOneAnother()).isTrue();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnTheSameColumn() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(4, 5), new Queen(2, 5));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(4, 5), new Queen(2, 5));
 
         assertThat(calculator.canQueensAttackOneAnother()).isTrue();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnFirstDiagonal() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(2, 2), new Queen(0, 4));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(2, 2), new Queen(0, 4));
 
         assertThat(calculator.canQueensAttackOneAnother()).isTrue();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnSecondDiagonal() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(2, 2), new Queen(3, 1));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(2, 2), new Queen(3, 1));
 
         assertThat(calculator.canQueensAttackOneAnother()).isTrue();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnThirdDiagonal() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(2, 2), new Queen(1, 1));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(2, 2), new Queen(1, 1));
 
         assertThat(calculator.canQueensAttackOneAnother()).isTrue();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensCanAttackOnFourthDiagonal() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(1, 7), new Queen(0, 6));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(1, 7), new Queen(0, 6));
 
         assertThat(calculator.canQueensAttackOneAnother()).isTrue();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueenCannotAttackIfFallingDiagonalsAreOnlyTheSameWhenReflectedAcrossTheLongestFallingDiagonal() {
-        QueenAttackCalculator calculator
-                = new QueenAttackCalculator(new Queen(4, 1), new Queen(2, 5));
+        QueenAttackCalculator calculator = new QueenAttackCalculator(new Queen(4, 1), new Queen(2, 5));
 
         assertThat(calculator.canQueensAttackOneAnother()).isFalse();
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testNullPositionsNotAllowed() {
         assertThatExceptionOfType(IllegalArgumentException.class)
@@ -124,7 +102,6 @@ public class QueenAttackCalculatorTest {
                 .withMessage("You must supply valid positions for both Queens.");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testQueensMustNotOccupyTheSameSquare() {
         assertThatExceptionOfType(IllegalArgumentException.class)
