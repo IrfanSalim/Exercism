@@ -14,15 +14,13 @@ public class SimpleLinkedListTest {
         assertThat(list.size()).isEqualTo(0);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void canCreateFromArray() {
-        Character[] values = new Character[]{'1', '2', '3'};
+        Character[] values = new Character[] { '1', '2', '3' };
         SimpleLinkedList<Character> list = new SimpleLinkedList<Character>(values);
         assertThat(list.size()).isEqualTo(3);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void popOnEmptyListWillThrow() {
         SimpleLinkedList<String> list = new SimpleLinkedList<String>();
@@ -30,7 +28,6 @@ public class SimpleLinkedListTest {
         assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(list::pop);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void popReturnsLastAddedElement() {
         SimpleLinkedList<Integer> list = new SimpleLinkedList<Integer>();
@@ -42,7 +39,6 @@ public class SimpleLinkedListTest {
         assertThat(list.size()).isEqualTo(0);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void reverseReversesList() {
         SimpleLinkedList<String> list = new SimpleLinkedList<String>();
@@ -59,7 +55,6 @@ public class SimpleLinkedListTest {
         assertThat(list.pop()).isEqualTo("5");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void canReturnListAsArray() {
         SimpleLinkedList<Character> list = new SimpleLinkedList<Character>();
@@ -68,11 +63,10 @@ public class SimpleLinkedListTest {
         list.push('7');
         list.push('6');
         list.push('5');
-        Character[] expected = {'5', '6', '7', '8', '9'};
+        Character[] expected = { '5', '6', '7', '8', '9' };
         assertThat(list.asArray(Character.class)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void canReturnEmptyListAsEmptyArray() {
         SimpleLinkedList<Object> list = new SimpleLinkedList<Object>();
