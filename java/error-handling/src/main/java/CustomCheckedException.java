@@ -1,11 +1,11 @@
 class CustomCheckedException extends Exception {
 
     CustomCheckedException() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        super();
     }
 
     CustomCheckedException(String message) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        super(message);
     }
 
 }
