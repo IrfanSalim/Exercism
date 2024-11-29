@@ -3,6 +3,7 @@ acp.sh
 
 # Ignore build folders
 build/
+bin/
 
 # Ignore Exercism and Gradle folders
 .exercism/

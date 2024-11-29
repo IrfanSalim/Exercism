@@ -26,7 +26,6 @@ public class KillerSudokuHelperTest {
     }
 
     @Test
-    @Disabled("Remove to run test")
     @DisplayName("Cage with sum 45 contains all digits 1:9")
     public void testCageWithSum45ContainsAllDigits() {
         List<List<Integer>> expected = List.of(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9));
@@ -34,7 +33,6 @@ public class KillerSudokuHelperTest {
     }
 
     @Test
-    @Disabled("Remove to run test")
     @DisplayName("Cage with only 1 possible combination")
     public void testCageWithOnlyOnePossibleCombination() {
         List<List<Integer>> expected = List.of(List.of(1, 2, 4));
@@ -42,27 +40,22 @@ public class KillerSudokuHelperTest {
     }
 
     @Test
-    @Disabled("Remove to run test")
     @DisplayName("Cage with several combinations")
     public void testCageWithSeveralCombinations() {
         List<List<Integer>> expected = List.of(
                 List.of(1, 9),
                 List.of(2, 8),
                 List.of(3, 7),
-                List.of(4, 6)
-        );
+                List.of(4, 6));
         assertThat(helper.combinationsInCage(10, 2)).isEqualTo(expected);
     }
 
     @Test
-    @Disabled("Remove to run test")
     @DisplayName("Cage with several combinations that is restricted")
     public void testCageWithSeveralCombinationsThatIsRestricted() {
         List<List<Integer>> expected = List.of(
                 List.of(2, 8),
-                List.of(3, 7)
-        );
+                List.of(3, 7));
         assertThat(helper.combinationsInCage(10, 2, List.of(1, 4))).isEqualTo(expected);
     }
 }
-
