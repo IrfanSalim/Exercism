@@ -9,6 +9,38 @@ class Fighter {
     }
 }
 
-// TODO: define the Warrior class
+class Warrior extends Fighter {
 
-// TODO: define the Wizard class
+    public String toString() {
+        return "Fighter is a Warrior";
+    }
+
+    boolean isVulnerable() {
+        return false;
+    }
+
+    int getDamagePoints(Fighter other) {
+        return other.isVulnerable() ? 10 : 6;
+    }
+
+}
+
+class Wizard extends Fighter {
+    boolean spellPrepared = false;
+
+    public String toString() {
+        return "Fighter is a Wizard";
+    }
+
+    void prepareSpell() {
+        spellPrepared = true;
+    }
+
+    boolean isVulnerable() {
+        return !spellPrepared;
+    }
+
+    int getDamagePoints(Fighter wizard) {
+        return spellPrepared ? 12 : 3;
+    }
+}
