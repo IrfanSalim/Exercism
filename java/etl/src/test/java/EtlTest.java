@@ -9,7 +9,6 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 public class EtlTest {
     private final Etl etl = new Etl();
 
@@ -32,7 +31,6 @@ public class EtlTest {
         assertThat(etl.transform(old)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testTransformMoreValues() {
         Map<Integer, List<String>> old = new HashMap<Integer, List<String>>() {
@@ -56,7 +54,6 @@ public class EtlTest {
         assertThat(etl.transform(old)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testMoreKeys() {
         Map<Integer, List<String>> old = new HashMap<Integer, List<String>>() {
@@ -80,7 +77,6 @@ public class EtlTest {
         assertThat(etl.transform(old)).isEqualTo(expected);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testFullDataset() {
         Map<Integer, List<String>> old = new HashMap<Integer, List<String>>() {
