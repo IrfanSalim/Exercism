@@ -1,47 +1,104 @@
+import java.util.Objects;
+
 class Zipper {
+    private int val;
     Zipper up;
     Zipper left;
     Zipper right;
 
     Zipper(int val) {
-        throw new UnsupportedOperationException("Please implement the Zipper(int) constructor.");
+        this.val = val;
+        this.up = null;
+        this.left = null;
+        this.right = null;
     }
 
     BinaryTree toTree() {
-        throw new UnsupportedOperationException("Please implement the Zipper.toTree() method.");
+        Zipper root = this;
+        while (root.up != null)
+            root = root.up;
+        return new BinaryTree(root);
     }
 
     int getValue() {
-        throw new UnsupportedOperationException("Please implement the Zipper.getValue() method.");
+        return this.val;
     }
 
     Zipper setLeft(Zipper leftChild) {
-        throw new UnsupportedOperationException("Please implement the Zipper.setLeft() method.");
+        if (leftChild != null) {
+            this.left = leftChild;
+            leftChild.up = this;
+            return this;
+        }
+
+        this.left = null;
+        return this;
     }
 
     Zipper setRight(Zipper rightChild) {
-        throw new UnsupportedOperationException("Please implement the Zipper.setRight() method.");
+        if (rightChild != null) {
+            this.right = rightChild;
+            rightChild.up = this;
+            return this;
+        }
+        this.right = null;
+        return this;
     }
 
     void setValue(int val) {
-        throw new UnsupportedOperationException("Please implement the Zipper.setValue() method.");
+        this.val = val;
+    }
+
+    public String printTree() {
+        String result = "value: " + this.val + ", ";
+        if (this.left != null)
+            result += "left: { " + this.left.printTree() + " }, ";
+        else
+            result += "left: null, ";
+        if (this.right != null)
+            result += "right: { " + this.right.printTree() + " }";
+        else
+            result += "right: null";
+        return result;
     }
 }
 
 class BinaryTree {
+
+    public Zipper root;
+
     BinaryTree(int value) {
-        throw new UnsupportedOperationException("Please implement the BinaryTree(int) constructor.");
+        this.root = new Zipper(value);
     }
 
     BinaryTree(Zipper root) {
-        throw new UnsupportedOperationException("Please implement the BinaryTree(Zipper) constructor.");
+        this.root = root;
     }
 
     Zipper getRoot() {
-        throw new UnsupportedOperationException("Please implement the BinaryTree.getRoot() method.");
+        return this.root;
     }
 
     String printTree() {
-        throw new UnsupportedOperationException("Please implement the BinaryTree.printTree() method.");
+        return root.printTree();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        BinaryTree that = (BinaryTree) obj;
+        return Objects.equals(root, that.root);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(root);
     }
 }
