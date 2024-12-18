@@ -1,72 +1,51 @@
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeSet;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 class BuildTree {
+    Map<Integer, TreeSet<Integer>> map = new HashMap<>();
 
     TreeNode buildTree(ArrayList<Record> records) throws InvalidRecordsException {
-        records.sort(Comparator.comparing(Record::getRecordId));
-        ArrayList<Integer> orderedRecordIds = new ArrayList<>();
+        if (records.isEmpty())
+            return null;
 
-        for (Record record : records) {
-            orderedRecordIds.add(record.getRecordId());
-        }
+        var set = new TreeSet<Integer>();
 
-        if (records.size() > 0) {
-            if (orderedRecordIds.get(orderedRecordIds.size() - 1) != orderedRecordIds.size() - 1) {
+        for (var record : records) {
+            int id = record.getRecordId();
+
+            if (!set.add(id))
                 throw new InvalidRecordsException("Invalid Records");
+
+            int pid = record.getParentId();
+
+            if (id == 0) {
+                if (pid != 0)
+                    throw new InvalidRecordsException("Invalid Records");
+                continue;
             }
-            if (orderedRecordIds.get(0) != 0) {
+
+            if (pid >= id)
                 throw new InvalidRecordsException("Invalid Records");
-            }
+
+            map.computeIfAbsent(pid, k -> new TreeSet<>()).add(id);
         }
 
-        ArrayList<TreeNode> treeNodes = new ArrayList<>();
+        if (set.first() != 0 || set.last() != records.size() - 1)
+            throw new InvalidRecordsException("Invalid Records");
 
-        for (int i = 0; i < orderedRecordIds.size(); i++) {
-            for (Record record : records) {
-                if (orderedRecordIds.get(i) == record.getRecordId()) {
-                    if (record.getRecordId() == 0 && record.getParentId() != 0) {
-                        throw new InvalidRecordsException("Invalid Records");
-                    }
-                    if (record.getRecordId() < record.getParentId()) {
-                        throw new InvalidRecordsException("Invalid Records");
-                    }
-                    if (record.getRecordId() == record.getParentId() && record.getRecordId() != 0) {
-                        throw new InvalidRecordsException("Invalid Records");
-                    }
-                    treeNodes.add(new TreeNode(record.getRecordId()));
-                }
-            }
-        }
-
-        for (int i = 0; i < orderedRecordIds.size(); i++) {
-            TreeNode parent;
-            for (TreeNode n: treeNodes) {
-                if (i == n.getNodeId()) {
-                    parent = n;
-                    for (Record record : records) {
-                        if (record.getParentId() == i) {
-                            for (TreeNode node : treeNodes) {
-                                if (node.getNodeId() == 0) {
-                                    continue;
-                                }
-                                if (record.getRecordId() == node.getNodeId()) {
-                                    parent.getChildren().add(node);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                }
-            }
-
-        }
-
-        if (treeNodes.size() > 0) {
-            return treeNodes.get(0);
-        }
-
-        return null;
+        return buildNode(0);
     }
 
+    private TreeNode buildNode(int n) {
+        TreeNode res = new TreeNode(n);
+
+        if (map.containsKey(n)) {
+            for (int c : map.get(n))
+                res.getChildren().add(buildNode(c));
+        }
+
+        return res;
+    }
 }
