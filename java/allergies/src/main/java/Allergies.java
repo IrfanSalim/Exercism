@@ -1,15 +1,29 @@
 import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
 
-class Allergies {
-    Allergies(int score) {
-        throw new UnsupportedOperationException("Please implement the Allergies constructor");
+public class Allergies {
+
+    private final int score;
+
+    public Allergies(int score) {
+        this.score = score;
     }
 
-    boolean isAllergicTo(Allergen allergen) {
-        throw new UnsupportedOperationException("Please implement the isAllergicTo method");
+    public boolean isAllergicTo(Allergen a) {
+        return getList().contains(a);
     }
 
-    List<Allergen> getList() {
-        throw new UnsupportedOperationException("Please implement the getList method");
+    public List<Allergen> getList() {
+        List<Allergen> results = new ArrayList<Allergen>();
+
+        for (Allergen a : Allergen.values()) {
+            if ((score & a.getScore()) != 0) {
+                results.add(a);
+            }
+        }
+
+        return results;
     }
+
 }
