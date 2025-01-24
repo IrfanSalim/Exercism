@@ -1,31 +1,68 @@
-class Robot {
+public class Robot {
 
-    Robot(GridPosition initialPosition, Orientation initialOrientation) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    private Orientation orientation;
+    private GridPosition gridPosition;
+
+    public Robot(GridPosition initialGridPosition,
+            Orientation initialOrientation) {
+        this.gridPosition = initialGridPosition;
+        this.orientation = initialOrientation;
     }
 
-    GridPosition getGridPosition() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public void turnRight() {
+        if (orientation == Orientation.EAST) {
+            orientation = Orientation.SOUTH;
+        } else if (orientation == Orientation.NORTH) {
+            orientation = Orientation.EAST;
+        } else if (orientation == Orientation.WEST) {
+            orientation = Orientation.NORTH;
+        } else if (orientation == Orientation.SOUTH) {
+            orientation = Orientation.WEST;
+        }
     }
 
-    Orientation getOrientation() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public void turnLeft() {
+        if (orientation == Orientation.EAST) {
+            orientation = Orientation.NORTH;
+        } else if (orientation == Orientation.NORTH) {
+            orientation = Orientation.WEST;
+        } else if (orientation == Orientation.WEST) {
+            orientation = Orientation.SOUTH;
+        } else if (orientation == Orientation.SOUTH) {
+            orientation = Orientation.EAST;
+        }
     }
 
-    void advance() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public void advance() {
+        if (orientation == Orientation.EAST) {
+            gridPosition = new GridPosition(gridPosition.x + 1, gridPosition.y);
+        } else if (orientation == Orientation.NORTH) {
+            gridPosition = new GridPosition(gridPosition.x, gridPosition.y + 1);
+        } else if (orientation == Orientation.WEST) {
+            gridPosition = new GridPosition(gridPosition.x - 1, gridPosition.y);
+        } else if (orientation == Orientation.SOUTH) {
+            gridPosition = new GridPosition(gridPosition.x, gridPosition.y - 1);
+        }
     }
 
-    void turnLeft() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public void simulate(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch == 'A') {
+                advance();
+            } else if (ch == 'R') {
+                turnRight();
+            } else if (ch == 'L') {
+                turnLeft();
+            }
+        }
     }
 
-    void turnRight() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public Orientation getOrientation() {
+        return orientation;
     }
 
-    void simulate(String instructions) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public GridPosition getGridPosition() {
+        return gridPosition;
     }
-
 }
