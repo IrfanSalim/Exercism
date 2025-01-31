@@ -1,48 +1,75 @@
-import java.util.Collection;
+import java.util.*;
 
-class CustomSet<T> {
-    CustomSet() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+public class CustomSet<T> {
+    private List<T> set = new ArrayList<T>();
+    private int size = 0;
+
+    public CustomSet() {
     }
 
-    CustomSet(Collection<T> data) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public CustomSet(List<T> elements) {
+        elements.forEach(this::add);
     }
 
-    boolean isEmpty() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public int size() {
+        return this.size;
     }
 
-    boolean contains(T element) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public boolean isEmpty() {
+        return this.size == 0;
     }
 
-    boolean isDisjoint(CustomSet<T> other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public boolean contains(T element) {
+        return this.set.contains(element);
     }
 
-    boolean add(T element) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public boolean equals(CustomSet<T> other) {
+        return this.size == other.size && this.isSubset(other);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public void add(T element) {
+        if (!this.contains(element)) {
+            this.size++;
+            this.set.add(element);
+        }
     }
 
-    CustomSet<T> getIntersection(CustomSet<T> other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public boolean isSubset(CustomSet<T> other) {
+        for (T element : other.set)
+            if (!this.contains(element))
+                return false;
+
+        return true;
     }
 
-    CustomSet<T> getUnion(CustomSet<T> other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public boolean isDisjoint(CustomSet<T> other) {
+        for (T element : this.set)
+            if (other.contains(element))
+                return false;
+        return true;
     }
 
-    CustomSet<T> getDifference(CustomSet<T> other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public CustomSet<T> getIntersection(CustomSet<T> other) {
+        CustomSet<T> intersection = new CustomSet<T>();
+        for (T element : this.set)
+            if (other.contains(element))
+                intersection.add(element);
+        return intersection;
     }
 
-    boolean isSubset(CustomSet<T> other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public CustomSet<T> getDifference(CustomSet<T> other) {
+        CustomSet<T> difference = new CustomSet<T>();
+        for (T element : this.set)
+            if (!other.contains(element))
+                difference.add(element);
+        return difference;
+    }
+
+    public CustomSet<T> getUnion(CustomSet<T> other) {
+        CustomSet<T> union = new CustomSet<T>();
+        this.set.forEach(union::add);
+        other.set.forEach(union::add);
+
+        return union;
     }
 }
