@@ -1,42 +1,54 @@
-class ComplexNumber {
+public class ComplexNumber {
 
-    ComplexNumber(double real, double imaginary) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    private final double real;
+    private final double imag;
+
+    public ComplexNumber(final double real, final double imag) {
+        this.real = real;
+        this.imag = imag;
     }
 
-    double getReal() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public double getReal() {
+        return real;
     }
 
-    double getImaginary() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public double getImaginary() {
+        return imag;
     }
 
-    double abs() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public double abs() {
+        return Math.sqrt(Math.pow(real, 2) + Math.pow(imag, 2));
     }
 
-    ComplexNumber add(ComplexNumber other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public ComplexNumber add(ComplexNumber c) {
+        return new ComplexNumber(real + c.real, imag + c.imag);
     }
 
-    ComplexNumber subtract(ComplexNumber other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public ComplexNumber subtract(ComplexNumber c) {
+        return new ComplexNumber(real - c.real, imag - c.imag);
     }
 
-    ComplexNumber multiply(ComplexNumber other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public ComplexNumber multiply(ComplexNumber c) {
+        double rx = real, ix = imag,
+                ry = c.real, iy = c.imag;
+        return new ComplexNumber(rx * ry - ix * iy, rx * iy + ry * ix);
     }
 
-    ComplexNumber divide(ComplexNumber other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public ComplexNumber divide(ComplexNumber c) {
+        double rx = real, ix = imag,
+                ry = c.real, iy = c.imag;
+        double d = Math.pow(c.abs(), 2);
+        return new ComplexNumber(
+                (rx * ry + ix * iy) / d, (ix * ry - rx * iy) / d);
     }
 
-    ComplexNumber conjugate() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public ComplexNumber conjugate() {
+        return new ComplexNumber(real, -imag);
     }
 
-    ComplexNumber exponentialOf() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public ComplexNumber exponentialOf() {
+        return new ComplexNumber(
+                Math.exp(real) * Math.cos(imag),
+                Math.exp(real) * Math.sin(imag));
     }
 }
