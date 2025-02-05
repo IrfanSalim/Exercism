@@ -12,206 +12,184 @@ import java.util.stream.Collectors;
 
 public class PalindromeCalculatorTest {
 
-    private PalindromeCalculator palindromeCalculator = new PalindromeCalculator();
+        private PalindromeCalculator palindromeCalculator = new PalindromeCalculator();
 
-    @Test
-    public void smallestPalindromeFromSingleDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(1, 1)
-                )
-        );
-        long expectedValue = 1L;
+        @Test
+        public void smallestPalindromeFromSingleDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(1, 1)));
+                long expectedValue = 1L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(1, 9);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(1, 9);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void largestPalindromeFromSingleDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(1, 9),
-                        Arrays.asList(3, 3)
-                )
-        );
-        long expectedValue = 9L;
+        @Test
+        public void largestPalindromeFromSingleDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(1, 9),
+                                                Arrays.asList(3, 3)));
+                long expectedValue = 9L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(1, 9);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(1, 9);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void largestPalindromeFromDoubleDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(91, 99)
-                )
-        );
-        long expectedValue = 9009L;
+        @Test
+        public void largestPalindromeFromDoubleDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(91, 99)));
+                long expectedValue = 9009L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(10,
-                99);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(10,
+                                                99);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void smallestPalindromeFromDoubleDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(11, 11)
-                )
-        );
-        long expectedValue = 121L;
+        @Test
+        public void smallestPalindromeFromDoubleDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(11, 11)));
+                long expectedValue = 121L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(10,
-                99);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(10,
+                                                99);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void largestPalindromeFromTripleDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(913, 993)
-                )
-        );
-        long expectedValue = 906609L;
+        @Test
+        public void largestPalindromeFromTripleDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(913, 993)));
+                long expectedValue = 906609L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(100,
-                999);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(100,
+                                                999);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void smallestPalindromeFromTripleDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(101, 101)
-                )
-        );
-        long expectedValue = 10201L;
+        @Test
+        public void smallestPalindromeFromTripleDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(101, 101)));
+                long expectedValue = 10201L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(100,
-                999);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(100,
+                                                999);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void smallestPalindromeFromQuadDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(1001, 1001)
-                )
-        );
-        long expectedValue = 1002001L;
+        @Test
+        public void smallestPalindromeFromQuadDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(1001, 1001)));
+                long expectedValue = 1002001L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(1000,
-                9999);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(1000,
+                                                9999);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void largestPalindromeFromQuadDigitFactors() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(9901, 9999)
-                )
-        );
-        long expectedValue = 99000099L;
+        @Test
+        public void largestPalindromeFromQuadDigitFactors() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(9901, 9999)));
+                long expectedValue = 99000099L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(1000,
-                9999);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(1000,
+                                                9999);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.lastKey());
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void emtpyResultSmallestNoPalindromeInRange() {
+        @Test
+        public void emtpyResultSmallestNoPalindromeInRange() {
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(1002,
-                1003);
-        assertThat(palindromes).isEmpty();
-    }
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(1002,
+                                                1003);
+                assertThat(palindromes).isEmpty();
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void emptyResultLargestNoPalindromeInRange() {
+        @Test
+        public void emptyResultLargestNoPalindromeInRange() {
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(15,
-                15);
-        assertThat(palindromes).isEmpty();
-    }
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(15,
+                                                15);
+                assertThat(palindromes).isEmpty();
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void errorSmallestMinIsMoreThanMax() {
+        @Test
+        public void errorSmallestMinIsMoreThanMax() {
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> palindromeCalculator.getPalindromeProductsWithFactors(10000, 1))
-                .withMessage("invalid input: min must be <= max");
-    }
+                assertThatExceptionOfType(IllegalArgumentException.class)
+                                .isThrownBy(() -> palindromeCalculator.getPalindromeProductsWithFactors(10000, 1))
+                                .withMessage("invalid input: min must be <= max");
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void errorLargestMinIsMoreThanMax() {
+        @Test
+        public void errorLargestMinIsMoreThanMax() {
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> palindromeCalculator.getPalindromeProductsWithFactors(2, 1))
-                .withMessage("invalid input: min must be <= max");
-    }
+                assertThatExceptionOfType(IllegalArgumentException.class)
+                                .isThrownBy(() -> palindromeCalculator.getPalindromeProductsWithFactors(2, 1))
+                                .withMessage("invalid input: min must be <= max");
+        }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void smallestProductDoesNotUseTheSmallestFactor() {
-        List<List<Integer>> expected = Collections.unmodifiableList(
-                Arrays.asList(
-                        Arrays.asList(3297, 3333)
-                )
-        );
-        long expectedValue = 10988901L;
+        @Test
+        public void smallestProductDoesNotUseTheSmallestFactor() {
+                List<List<Integer>> expected = Collections.unmodifiableList(
+                                Arrays.asList(
+                                                Arrays.asList(3297, 3333)));
+                long expectedValue = 10988901L;
 
-        SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator.getPalindromeProductsWithFactors(3215,
-                4000);
+                SortedMap<Long, List<List<Integer>>> palindromes = palindromeCalculator
+                                .getPalindromeProductsWithFactors(3215,
+                                                4000);
 
-        checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
-    }
+                checkPalindromeWithFactorsMatchesExpected(expected, expectedValue, palindromes, palindromes.firstKey());
+        }
 
+        private void checkPalindromeWithFactorsMatchesExpected(List<List<Integer>> expectedPalindromeFactors,
+                        long expectedValueOfPalindrome,
+                        SortedMap<Long, List<List<Integer>>> actualPalindromes,
+                        long actualValueOfPalindrome) {
+                assertThat(actualPalindromes)
+                                .isNotNull()
+                                .isNotEmpty();
 
-    private void checkPalindromeWithFactorsMatchesExpected(List<List<Integer>> expectedPalindromeFactors,
-                                                           long expectedValueOfPalindrome,
-                                                           SortedMap<Long, List<List<Integer>>> actualPalindromes,
-                                                           long actualValueOfPalindrome) {
-        assertThat(actualPalindromes)
-                .isNotNull()
-                .isNotEmpty();
+                assertThat(actualValueOfPalindrome).isEqualTo(expectedValueOfPalindrome);
 
+                List<List<Integer>> actualPalindromeFactors = actualPalindromes
+                                .get(actualValueOfPalindrome)
+                                .stream()
+                                .sorted((a, b) -> Integer.compare(a.get(0), b.get(0)))
+                                .collect(Collectors.toList());
 
-        assertThat(actualValueOfPalindrome).isEqualTo(expectedValueOfPalindrome);
+                assertThat(actualPalindromeFactors).containsExactlyElementsOf(expectedPalindromeFactors);
 
-
-        List<List<Integer>> actualPalindromeFactors = actualPalindromes
-                .get(actualValueOfPalindrome)
-                .stream()
-                .sorted((a, b) -> Integer.compare(a.get(0), b.get(0)))
-                .collect(Collectors.toList());
-
-        assertThat(actualPalindromeFactors).containsExactlyElementsOf(expectedPalindromeFactors);
-
-    }
+        }
 }
