@@ -1,21 +1,37 @@
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class Cipher {
-    public Cipher() {
-        throw new UnsupportedOperationException("Please implement the Cipher() constructor.");
-    }
+    private String key;
 
     public Cipher(String key) {
-        throw new UnsupportedOperationException("Please implement the Cipher(String) constructor.");
+        this.key = key;
+    }
+
+    public Cipher() {
+        this(IntStream.range(0, 100)
+                .mapToObj(i -> Character.toString('a' + (int) (Math.random() * 26)))
+                .collect(Collectors.joining("")));
     }
 
     public String getKey() {
-        throw new UnsupportedOperationException("Please implement the Cipher.getKey() method.");
+        return key;
     }
 
     public String encode(String plainText) {
-        throw new UnsupportedOperationException("Please implement the Cipher.encode() method.");
+        return translate(plainText, +1);
     }
 
-    public String decode(String cipherText) {
-        throw new UnsupportedOperationException("Please implement the Cipher.decode() method.");
+    public String decode(String substring) {
+        return translate(substring, -1);
+    }
+
+    private String translate(String plainText, int sign) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < plainText.length(); i++) {
+            result.append(
+                    (char) ((plainText.charAt(i) - 'a' + sign * (key.charAt(i % key.length()) - 'a') + 26) % 26 + 'a'));
+        }
+        return result.toString();
     }
 }
