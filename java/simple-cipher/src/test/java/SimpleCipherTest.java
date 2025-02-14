@@ -14,8 +14,10 @@ public class SimpleCipherTest {
     }
 
     /**
-     * Here we take advantage of the fact that plaintext of "aaa..." doesn't output the key. This is a critical
-     * problem with shift ciphers, some characters will always output the key verbatim.
+     * Here we take advantage of the fact that plaintext of "aaa..." doesn't output
+     * the key. This is a critical
+     * problem with shift ciphers, some characters will always output the key
+     * verbatim.
      */
     @Test
     public void randomKeyCipherCanEncode() {
@@ -24,28 +26,24 @@ public class SimpleCipherTest {
         assertThat(randomKeyCipher.encode(plainText)).isEqualTo(cipherText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void randomKeyCipherCanDecode() {
         String cipherText = "aaaaaaaaaa";
         assertThat(randomKeyCipher.decode(randomKeyCipher.getKey().substring(0, 10)))
-            .isEqualTo(cipherText);
+                .isEqualTo(cipherText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void randomKeyCipherIsReversible() {
         String plainText = "abcdefghij";
         assertThat(randomKeyCipher.decode(randomKeyCipher.encode(plainText))).isEqualTo(plainText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void randomKeyCipherKeyIsLowercaseLetters() {
         assertThat(randomKeyCipher.getKey()).matches("^[a-z]+$");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void substitutionCipherCanEncode() {
         String plainText = "aaaaaaaaaa";
@@ -53,7 +51,6 @@ public class SimpleCipherTest {
         assertThat(substitutionCipher.encode(plainText)).isEqualTo(cipherText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void substitutionCipherCanDecode() {
         String plainText = "abcdefghij";
@@ -61,14 +58,12 @@ public class SimpleCipherTest {
         assertThat(substitutionCipher.decode(plainText)).isEqualTo(cipherText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void substitutionCipherIsReversibleGivenKey() {
         String plainText = "abcdefghij";
         assertThat(substitutionCipher.decode(substitutionCipher.encode(plainText))).isEqualTo(plainText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void substitutionCipherCanDoubleShiftEncode() {
         String plainText = "iamapandabear";
@@ -76,7 +71,6 @@ public class SimpleCipherTest {
         assertThat(new Cipher(plainText).encode(plainText)).isEqualTo(cipherText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void substitutionCipherCanWrapEncode() {
         String plainText = "zzzzzzzzzz";
@@ -84,7 +78,6 @@ public class SimpleCipherTest {
         assertThat(substitutionCipher.encode(plainText)).isEqualTo(cipherText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void substitutionCipherCanWrapDecode() {
         String plainText = "zabcdefghi";
@@ -92,7 +85,6 @@ public class SimpleCipherTest {
         assertThat(substitutionCipher.decode(plainText)).isEqualTo(cipherText);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void substitutionCipherMessageLongerThanKey() {
         String plainText = "iamapandabear";
@@ -101,4 +93,3 @@ public class SimpleCipherTest {
         assertThat(new Cipher(key).encode(plainText)).isEqualTo(cipherText);
     }
 }
-
