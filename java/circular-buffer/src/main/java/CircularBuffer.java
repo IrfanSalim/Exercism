@@ -1,23 +1,36 @@
-class CircularBuffer<T> {
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Optional;
 
-    CircularBuffer(final int size) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+public class CircularBuffer<E> {
+    private final Deque<E> deque = new ArrayDeque<>();
+    private final int size;
+
+    public CircularBuffer(int size) {
+        this.size = size;
     }
 
-    T read() throws BufferIOException {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public E read() throws BufferIOException {
+        E first = deque.pollFirst();
+        return Optional.ofNullable(first)
+                .orElseThrow(() -> new BufferIOException("Tried to read from empty buffer"));
     }
 
-    void write(T data) throws BufferIOException {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public void write(E element) throws BufferIOException {
+        if (deque.size() == size)
+            throw new BufferIOException("Tried to write to full buffer");
+
+        deque.addLast(element);
     }
 
-    void overwrite(T data) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    public void clear() {
+        deque.clear();
     }
 
-    void clear() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+    public void overwrite(E element) {
+        if (deque.size() == size)
+            deque.removeFirst();
 
+        deque.addLast(element);
+    }
 }
