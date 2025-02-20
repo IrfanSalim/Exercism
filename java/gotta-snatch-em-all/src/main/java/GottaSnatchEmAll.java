@@ -1,25 +1,39 @@
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 class GottaSnatchEmAll {
 
     static Set<String> newCollection(List<String> cards) {
-        throw new UnsupportedOperationException("Please implement the (static) GottaSnatchEmAll.newCollection() method");
+        Set<String> newCollectionCard = new HashSet<>(cards);
+        return newCollectionCard;
     }
 
     static boolean addCard(String card, Set<String> collection) {
-        throw new UnsupportedOperationException("Please implement the (static) GottaSnatchEmAll.addCard() method");
+        return collection.add(card);
+
     }
 
     static boolean canTrade(Set<String> myCollection, Set<String> theirCollection) {
-        throw new UnsupportedOperationException("Please implement the (static) GottaSnatchEmAll.canTrade() method");
+        Set<String> myCollectionCopy = new HashSet<>(myCollection);
+        Set<String> theirCollectionCopy = new HashSet<>(theirCollection);
+        myCollectionCopy.removeAll(theirCollection);
+        theirCollectionCopy.removeAll(myCollection);
+        return !myCollectionCopy.isEmpty() && !theirCollectionCopy.isEmpty();
     }
 
     static Set<String> commonCards(List<Set<String>> collections) {
-        throw new UnsupportedOperationException("Please implement the (static) GottaSnatchEmAll.commonCards() method");
+        Set<String> common = new HashSet<>(collections.get(0));
+        for (Set<String> collection : collections) {
+            common.retainAll(collection);
+        }
+
+        return common;
     }
 
     static Set<String> allCards(List<Set<String>> collections) {
-        throw new UnsupportedOperationException("Please implement the (static) GottaSnatchEmAll.allCards() method");
+        Set<String> allCards = new HashSet<>();
+        for (Set<String> collection : collections) {
+            allCards.addAll(collection);
+        }
+        return allCards;
     }
 }
