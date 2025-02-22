@@ -1,64 +1,62 @@
 import java.util.Objects;
 
 class Rational {
+    int numerator;
+    int denominator;
 
     Rational(int numerator, int denominator) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    int getNumerator() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    int getDenominator() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    Rational add(Rational other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    Rational subtract(Rational other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    Rational multiply(Rational other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    Rational divide(Rational other) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    Rational abs() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    Rational pow(int power) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    double exp(double exponent) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%d/%d", this.getNumerator(), this.getDenominator());
+        int g = gcd(numerator, denominator);
+        this.numerator = numerator / g;
+        this.denominator = denominator / g;
+        if (this.denominator < 0) {
+            this.numerator *= -1;
+            this.denominator *= -1;
+        }
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Rational other) {
-            return this.getNumerator() == other.getNumerator()
-                    && this.getDenominator() == other.getDenominator();
-        }
-
-        return false;
+        Rational other = (Rational) obj;
+        return numerator == other.numerator && denominator == other.denominator;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.getNumerator(), this.getDenominator());
+    int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+
+    Rational add(Rational r) {
+        return new Rational(numerator * r.denominator + r.numerator * denominator, denominator * r.denominator);
+    }
+
+    Rational subtract(Rational r) {
+        return new Rational(numerator * r.denominator - r.numerator * denominator, denominator * r.denominator);
+    }
+
+    Rational multiply(Rational r) {
+        return new Rational(numerator * r.numerator, denominator * r.denominator);
+    }
+
+    Rational divide(Rational r) {
+        return new Rational(numerator * r.denominator, denominator * r.numerator);
+    }
+
+    Rational abs() {
+        return new Rational(Math.abs(numerator), denominator);
+    }
+
+    Rational pow(int e) {
+        if (e < 0) {
+            Rational r = pow(-e);
+            return new Rational(r.denominator, r.numerator);
+        }
+        Rational result = new Rational(1, 1);
+        for (int i = 0; i < e; i++) {
+            result = result.multiply(this);
+        }
+        return result;
+    }
+
+    double exp(double x) {
+        return Math.pow(Math.pow(x, 1.0 / denominator), numerator);
     }
 }
