@@ -1,34 +1,37 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class DialingCodes {
+    private Map<Integer, String> codes = new HashMap<>();
 
     public Map<Integer, String> getCodes() {
-        throw new UnsupportedOperationException(
-                "Delete this statement and write your own implementation.");
+        return codes;
     }
 
     public void setDialingCode(Integer code, String country) {
-        throw new UnsupportedOperationException(
-                "Delete this statement and write your own implementation.");
+        codes.put(code, country);
     }
 
     public String getCountry(Integer code) {
-        throw new UnsupportedOperationException(
-                "Delete this statement and write your own implementation.");
+        return codes.get(code);
     }
 
     public void addNewDialingCode(Integer code, String country) {
-        throw new UnsupportedOperationException(
-                "Delete this statement and write your own implementation.");
+        if (!codes.containsKey(code) && !codes.containsValue(country)) {
+            codes.put(code, country);
+        }
     }
 
     public Integer findDialingCode(String country) {
-        throw new UnsupportedOperationException(
-                "Delete this statement and write your own implementation.");
+        return codes.entrySet().stream()
+                .filter(entry -> entry.getValue().equals(country))
+                .map(entry -> entry.getKey())
+                .findFirst()
+                .orElse(null);
     }
 
     public void updateCountryDialingCode(Integer code, String country) {
-        throw new UnsupportedOperationException(
-                "Delete this statement and write your own implementation.");
+        codes.remove(code);
+        codes.put(code, country);
     }
 }
