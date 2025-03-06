@@ -24,8 +24,8 @@ public class HangmanTest {
     @Test
     public void initialization() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray());
+                Observable.fromArray("secret"),
+                Observable.fromArray());
         Output init = result.blockingFirst();
 
         assertThat(init).isNotNull();
@@ -37,12 +37,11 @@ public class HangmanTest {
         assertThat(init.status).isEqualTo(Status.PLAYING);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void firstGuess() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray("e"));
+                Observable.fromArray("secret"),
+                Observable.fromArray("e"));
 
         Output last = result.blockingLast();
         assertThat(last.discovered).isEqualTo("_e__e_");
@@ -52,12 +51,11 @@ public class HangmanTest {
         assertThat(last.status).isEqualTo(Status.PLAYING);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void firstMiss() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray("a"));
+                Observable.fromArray("secret"),
+                Observable.fromArray("a"));
         Output last = result.blockingLast();
 
         assertThat(last.discovered).isEqualTo("______");
@@ -67,12 +65,11 @@ public class HangmanTest {
         assertThat(last.status).isEqualTo(Status.PLAYING);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void gameInProgress() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray("a", "e", "o", "s"));
+                Observable.fromArray("secret"),
+                Observable.fromArray("a", "e", "o", "s"));
         Output last = result.blockingLast();
 
         assertThat(last.discovered).isEqualTo("se__e_");
@@ -82,12 +79,11 @@ public class HangmanTest {
         assertThat(last.status).isEqualTo(Status.PLAYING);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void wonGame() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray("a", "e", "o", "s", "c", "r", "g", "t"));
+                Observable.fromArray("secret"),
+                Observable.fromArray("a", "e", "o", "s", "c", "r", "g", "t"));
         Output last = result.blockingLast();
 
         assertThat(last.discovered).isEqualTo("secret");
@@ -95,12 +91,11 @@ public class HangmanTest {
         assertThat(last.status).isEqualTo(Status.WIN);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void lostGame() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray("a", "b", "c", "d", "e", "f", "g", "h"));
+                Observable.fromArray("secret"),
+                Observable.fromArray("a", "b", "c", "d", "e", "f", "g", "h"));
         Output last = result.blockingLast();
 
         assertThat(last.discovered).isEqualTo("_ec_e_");
@@ -112,14 +107,13 @@ public class HangmanTest {
                 Part.LEFT_ARM,
                 Part.RIGHT_ARM,
                 Part.LEFT_LEG,
-                Part.RIGHT_LEG
-        );
+                Part.RIGHT_LEG);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void consecutiveGames() {
-        // This test setup is more complex because we have to order the emission of values in the
+        // This test setup is more complex because we have to order the emission of
+        // values in the
         // different observers.
         // 1. Word observable receives the work to guess
         // 2. Letter observable receives the various letters tried
@@ -143,7 +137,7 @@ public class HangmanTest {
         // We collect the results of the game
         List<Output> results = new ArrayList<>();
         Disposable subscription = outputs.filter(output -> output.status != Status.PLAYING)
-            .subscribe(results::add);
+                .subscribe(results::add);
         try {
             assertThat(results.size()).isEqualTo(2);
 
@@ -165,49 +159,47 @@ public class HangmanTest {
 
     Observable createWordObservable(ObservableEmitter[] emitters, Runnable emit) {
         return Observable.create(
-            emitter -> {
-                // A new subscription was created for words, record it.
-                emitters[0] = emitter;
-                if (emitters[1] != null) {
-                    // Start emitting only when both word and letter observable have subscriptions
-                    emit.run();
-                }
-            });
+                emitter -> {
+                    // A new subscription was created for words, record it.
+                    emitters[0] = emitter;
+                    if (emitters[1] != null) {
+                        // Start emitting only when both word and letter observable have subscriptions
+                        emit.run();
+                    }
+                });
     }
 
     Observable createLetterObservable(ObservableEmitter[] emitters, Runnable emit) {
         return Observable.create(
-            emitter -> {
-                // A new subscription was created for letters, record it.
-                emitters[1] = emitter;
-                if (emitters[0] != null) {
-                    // Start emitting only when both word and letter observable have subscriptions
-                    emit.run();
-                }
-            });
+                emitter -> {
+                    // A new subscription was created for letters, record it.
+                    emitters[1] = emitter;
+                    if (emitters[0] != null) {
+                        // Start emitting only when both word and letter observable have subscriptions
+                        emit.run();
+                    }
+                });
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void cannotPlayAGuessTwice() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray("e", "c", "s", "c"));
+                Observable.fromArray("secret"),
+                Observable.fromArray("e", "c", "s", "c"));
 
         assertThatThrownBy(() -> result.blockingLast())
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("Letter c was already played");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Letter c was already played");
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void cannotPlayAMissTwice() {
         Observable<Output> result = hangman.play(
-            Observable.fromArray("secret"),
-            Observable.fromArray("e", "a", "s", "a"));
+                Observable.fromArray("secret"),
+                Observable.fromArray("e", "a", "s", "a"));
 
         assertThatThrownBy(() -> result.blockingLast())
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("Letter a was already played");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Letter a was already played");
     }
 }
