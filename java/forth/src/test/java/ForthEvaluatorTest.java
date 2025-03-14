@@ -343,7 +343,6 @@ public class ForthEvaluatorTest {
                 .containsExactly(1, 1, 1, 1);
     }
 
-    @Disabled
     @Test
     public void testDefinitionsAreOnlyDefinedLocally() {
         ForthEvaluator firstInstance = new ForthEvaluator();
