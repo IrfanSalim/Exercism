@@ -8,3 +8,4 @@ bin/
 # Ignore Exercism and Gradle folders
 .exercism/
 .gradle/
+__pycache__/
