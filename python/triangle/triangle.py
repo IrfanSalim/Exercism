@@ -1,10 +1,11 @@
 def equilateral(sides):
-    pass
-
+    return is_valid(sides) and len(set(sides)) == 1
 
 def isosceles(sides):
-    pass
-
+    return is_valid(sides) and len(set(sides)) < 3
 
 def scalene(sides):
-    pass
+    return is_valid(sides) and len(set(sides)) == 3
+
+def is_valid(sides):
+    return all(sides) and (sum(sides) >= max(sides)*2)
