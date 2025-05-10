@@ -9,3 +9,4 @@ bin/
 .exercism/
 .gradle/
 __pycache__/
+.qodo
