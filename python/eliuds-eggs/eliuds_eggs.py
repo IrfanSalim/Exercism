@@ -1,2 +1,2 @@
 def egg_count(display_value):
-    pass
+    return display_value.bit_count()
