@@ -1,24 +1,21 @@
 def largest(min_factor, max_factor):
-    """Given a range of numbers, find the largest palindromes which
-       are products of two numbers within that range.
-
-    :param min_factor: int with a default value of 0
-    :param max_factor: int
-    :return: tuple of (palindrome, iterable).
-             Iterable should contain both factors of the palindrome in an arbitrary order.
-    """
-
-    pass
-
+    return get_palindr(min_factor, max_factor, smallest = False)
 
 def smallest(min_factor, max_factor):
-    """Given a range of numbers, find the smallest palindromes which
-    are products of two numbers within that range.
+    return get_palindr(min_factor, max_factor)
 
-    :param min_factor: int with a default value of 0
-    :param max_factor: int
-    :return: tuple of (palindrome, iterable).
-    Iterable should contain both factors of the palindrome in an arbitrary order.
-    """
+def get_palindr(min, max, smallest = True):
+    if min > max:
+        raise ValueError("min must be <= max")
 
-    pass
+    arr = (min**2, max**2+1) if smallest else (max**2, min**2-1, -1)
+    factors = []
+    for prod in range(*arr):
+        s = str(prod)
+        if s == s[::-1]: # if palindrom
+            for i in range(min, max+1):
+                if prod%i == 0 and min <= i <= prod//i <= max:
+                    factors.append([i, prod//i])
+            if factors != []:
+                return (prod, factors)
+    return (None, [])
